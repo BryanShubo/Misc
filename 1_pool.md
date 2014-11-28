@@ -36,10 +36,11 @@
 
 2. Install maven on mac
 
-```
 Since your installation works on the terminal you installed, all the exports you did, work on the current bash and its child process. but is not spawned to new terminals.
 
 env variables are lost if the session is closed; using .bash_profile, you can make it available in all sessions, since when a bash session starts, it 'runs' its .bashrc and .bash_profile
+
+```
 
 Now follow these steps and see if it helps:
 
