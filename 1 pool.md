@@ -76,3 +76,147 @@ save the file and type source ~/.bash_profile. This steps executes the commands 
 
 open a new terminal and type mvn that should work.
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+4. how to print something using dbms_output.put_line()message 
+ 
+set serveroutput on 
+ 
+select * from user_procedures 
+select * from user_triggers 
+select * from user_tables; 
+ 
+ 
+6. To open file on console in linux 
+cat file 
+less file // for long name 
+ 
+7. How to increase output buffer size in Oracle 
+PL/SQL: DBMS_OUTPUT.ENABLE (buffer_size => NULL); 
+SQL*Plus: set serveroutput on size unlimited 
+ 
+ 
+8. how to add quote for cell in excel 
+·         High­light the cells you want to add the quotes. 
+·         Go to For­mat –> Cells –> Custom 
+·         Paste the fol­low­ing into the “Type” field: ”””@””” (see blow up below) 
+·         Click “okay” 
+  
+JUnit, Mockito, powermock, easymock 
+ 
+ 
+** Apache POI 
+9. Iterate over cells, with control of missing / blank cells 
+Use for loop instead of cell.hasNext() 
+ 
+ 
+10. how to comment or uncomment in sql developer 
+control + / 
+ 
+ 
+ 
+11. how to find corrupt index in DB 
+ select object_name, object_type from dba_objects where object_id=8831; 
+   
+  select partition_name from dba_segments where TABLESPACE_NAME = (select tablespace_name from dba_data_files where file_id=26) and SEGMENT_NAME='APPLICANT_BENEFIT_XREF_IDX05'; 
+   
+12. where is the tnsnames.ora file 
+/network/admin/tnsnames.ora  
+ 
+13. DB link does not work: 
+ CREATE DATABASE LINK QDSMISC1 
+  CONNECT TO research IDENTIFIED BY research_qdsmisc1 USING 
+ '(DESCRIPTION = 
+   (ADDRESS_LIST = 
+     (ADDRESS = (PROTOCOL = TCP)(HOST = usvcltmiscqds1.reinscloud.local)(PORT = 1521)) 
+   ) 
+   (CONNECT_DATA = 
+     (SERVICE_NAME = qdsmisc1) 
+   ) 
+ )'; 
+  
+ 
+  
+ INSERT INTO DMF_EXTRACT 
+    select * from dmf_extract@QDSMISC1; 
+    commit; 
+ 
+ 
+ 
+14. Grant user select privilege 
+ 
+BEGIN 
+    FOR t IN (SELECT * FROM user_tables)  
+    LOOP    
+        EXECUTE IMMEDIATE 'GRANT SELECT ON ' || t.table_name || ' TO U000010,VELOGICA_SERVICE,USUNODA,USUTHOP,USUCUHA,USUFIJA,USUMCIA,USUMEAF,USUMCKE,USUMCBR,U000488';     
+    END LOOP; 
+END; 
+ 
+ 
+Alter table column size 
+alter table RESCORE_RX_GROUP_DETAIL 
+ MODIFY RX_GROUP varchar2(30) 
+ 
+ 
+Oracle alter table modify column Syntax example 
+ 
+Oracle Tips by Burleson Consulting 
+For complete tips on Oracle alter table syntax, see the book "Easy Oracle Jumpstart".  Oracle provides "alter table" syntax to modify data columns in-place in this form: 
+alter table 
+   table_name 
+modify 
+   column_name  datatype; 
+If you are brave you can use a single "alter table" syntax to modify multiple columns: 
+alter table 
+   table_name 
+modify 
+   ( 
+   column1_name  column1_datatype, 
+   column2_name  column2_datatype, 
+   column3_name  column3_datatype, 
+   column4_name  column4_datatype 
+   ); 
+Here are some examples of Oracle "alter table" syntax to modify data columns and note that you can add constraints like NOT NULL: 
+ALTER TABLE  
+   customer  
+MODIFY  
+   (  
+   cust_name varchar2(100) not null, 
+   cust_hair_color  varchar2(20) 
+   ) 
+; 
+We can also use Oracle "alter table" syntax in dynamic PL/SQL to modify data columns 
+BEGIN  
+SQL_STRING := 'ALTER TABLE '||:TABLE_NAME||' MODIFY '||:COLUMN_NAME||' VARCHAR2(100)'; . . .  
+END;  
+ 
+ 
+ 
+ 
+ 
+Start–>cmd–>netstat -a -o -n 
+ 
+ 
+taskkill /F /PID <pid> 
+ 
+ 
+ 
+ 
