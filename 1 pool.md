@@ -142,6 +142,7 @@ control + /
 /network/admin/tnsnames.ora  
  
 13. DB link does not work: 
+```
  CREATE DATABASE LINK QDSMISC1 
   CONNECT TO research IDENTIFIED BY research_qdsmisc1 USING 
  '(DESCRIPTION = 
@@ -153,7 +154,7 @@ control + /
    ) 
  )'; 
   
- 
+ ```
   
  INSERT INTO DMF_EXTRACT 
     select * from dmf_extract@QDSMISC1; 
