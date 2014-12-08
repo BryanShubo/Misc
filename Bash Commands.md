@@ -1,6 +1,12 @@
 ##Bash Commands:
 
 ```
+// Go to the sudo command
+
+sudo su
+```
+
+```
 An A-Z Index of the Bash command line for Linux.
 
   alias    Create an alias •
