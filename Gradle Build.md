@@ -6,7 +6,7 @@ This file is used to store jar dependency in build.gradle
 * create src/test/java
 * create src/test/resources
 * create src/main/java/Hello.java
-* In build.gradle, add 
+* In build.gradle file, add 
 ```
 apply plugin:"java"
 ```
