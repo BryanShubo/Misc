@@ -1,5 +1,18 @@
 This file is used to store jar dependency in build.gradle
 
+####1. Quick start gradle java project
+* create src/main/java
+* create src/main/resouces
+* create src/test/java
+* create src/test/resources
+* create src/main/java/Hello.java
+* In build.gradle, add 
+```
+apply plugin:"java"
+```
+* gradle build
+
+
 ```
 apply plugin: "java"
 apply plugin: "groovy"
