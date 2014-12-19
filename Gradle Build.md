@@ -1,6 +1,6 @@
 This file is used to store jar dependency in build.gradle
 
-
+```
 apply plugin: "java"
 apply plugin: "groovy"
 apply plugin: "eclipse"
@@ -60,3 +60,4 @@ task info << {
         println it.name
     }
 }
+```
