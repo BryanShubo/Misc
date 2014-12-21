@@ -71,7 +71,6 @@ I use the sequence Alt + C, N (Show Changes View) to see which files in the proj
 When not in the diff view, I use Ctrl + Shift + Alt + Up/Ctrl + Shift + Alt + Down to jump to the parts of the file that have been changed compared to the checked-out version. At each modification point, you see the corresponding part in the checked-out version in a pop-up window.
 
 Finally, I run JUnit tests using Ctrl + Shift + F10.
-
 Edit: One really useful shortcut that I've only started using in the last few months is Ctrl + E. It brings up a pop-up with the 15 most recently used files, and you just arrow down to the one you want and hit enter to navigate to it.
 
 
