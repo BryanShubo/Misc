@@ -34,7 +34,7 @@ Shift + F11 invokes a list of bookmarks. Pressing a key takes to associated book
 
 Shift+Delete deletes the entire line (will 'cut' it to clipboard)
 
-Ctrl+Alt+L to reformat and optimize imports
+Ctrl+Shift+O  reformat code
 
 Ctrl+Shift+J to join lines (pull content of next line up to current line).
 
