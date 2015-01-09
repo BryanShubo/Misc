@@ -82,4 +82,10 @@ Ctrl + Alt + V : introduce variable (never type the left hand side of an assignm
 Ctrl + Shift + Space : smart completion ( even two levels down since IntelliJ 8 )
 Ctrl + W : select succesively increasing code blocks. Kind of obvious but a real time saver!
 
+To create a documentation comment for a method or function
+
+Place the caret before the declaration.
+Type the opening block comment /**, and press Enter.
+Add meaningful description of parameters and return values.
+
 ```
