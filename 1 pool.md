@@ -220,4 +220,18 @@ taskkill /F /PID <pid>
  
  
  
+Solve printer issue (Splwow64.exe error)
+'''
+Please follow the steps below to sort out the issue:
+
+Click Start and type in regedit and press Enter. Alternatively press Windows button and R key at the same time and this opens the Run command. Type in regedit and press Enter.
+Scroll down to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print\Environments\Windows x64\Drivers
+When we expand the Drivers key, we should find the key Version-3.
+The sub-keys after this should contain the printer driver configuration information. Delete all the sub-keys that comes under it. At least delete the key that contains the name of the Printer model that is causing issues.
+Press Windows button and R key and press Enter. Type in “cmd” and press enter. This would open the command prompt window.
+Type in the command net stop spooler . Please note that this is equal to going to Service from Control Panel and stopping the print spooler service.
+Navigate to “C:\WINDOWS\system32\spool\printers\” and delete files in this folder, if there are any. Normally you might not find files in there, but if there are any, delete them. The folder is so significant because this is where the print spooler stores print files.
+Navigate to “C:\WINDOWS\system32\spool\drivers\x64\3″ and delete all the files and sub-folders in here.
+Go to the command prompt window again and type in the command net start spooler or just right click on Print Spooler and press Start.
+'''
  
