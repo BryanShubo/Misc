@@ -235,3 +235,6 @@ Navigate to “C:\WINDOWS\system32\spool\drivers\x64\3″ and delete all the fil
 Go to the command prompt window again and type in the command net start spooler or just right click on Print Spooler and press Start.
 '''
  
+```
+site:mitbbs.com linkedin
+```
