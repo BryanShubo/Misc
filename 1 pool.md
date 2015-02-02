@@ -4,8 +4,8 @@ mvn archetype:generate -DgroupId={project-packaging}
    -DarchetypeArtifactId=maven-archetype-quickstart 
    -DinteractiveMode=false
 
-mvn archetype:generate -DgroupId={qds} 
-   -DartifactId={XmlValidator} 
+mvn archetype:generate -DgroupId=qds
+   -DartifactId=XmlValidator
    -DarchetypeArtifactId=maven-archetype-quickstart 
    -DinteractiveMode=false
 
