@@ -1,7 +1,13 @@
-1. Using maven to build jar file
 
+mvn archetype:generate -DgroupId={project-packaging} 
+   -DartifactId={project-name} 
+   -DarchetypeArtifactId=maven-archetype-quickstart 
+   -DinteractiveMode=false
 
-
+mvn archetype:generate -DgroupId={qds} 
+   -DartifactId={XmlValidator} 
+   -DarchetypeArtifactId=maven-archetype-quickstart 
+   -DinteractiveMode=false
 
 1. Using mavn to build jar file
 1) add this plugin to pom.xml
