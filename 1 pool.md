@@ -1,4 +1,6 @@
 
+If a property’s name has two characters,  it should be  either defined as “a-b” in schema file and “aB” in Java file, or “aB” in schema file and “ab” in Java file. Otherwise, reflection cannot find the property.
+
 mvn archetype:generate -DgroupId={project-packaging} 
    -DartifactId={project-name} 
    -DarchetypeArtifactId=maven-archetype-quickstart 
