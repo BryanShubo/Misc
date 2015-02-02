@@ -1,5 +1,6 @@
 
 ```
+Ctrl + H => find hierarchy for class
 1. control+F12  => list all methods in the class
 2. control + N => pop out a search box for searching a class
 3. ctr +alt+shift+N => pop out a search box for any symbol
