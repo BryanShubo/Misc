@@ -1,5 +1,6 @@
 
 ```
+ALT+SHIFT+F10 => Enter arguments for main method
 Ctrl + H => find hierarchy for class
 1. control+F12  => list all methods in the class
 2. control + N => pop out a search box for searching a class
