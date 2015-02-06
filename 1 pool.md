@@ -6,8 +6,8 @@ mvn archetype:generate -DgroupId={project-packaging}
    -DarchetypeArtifactId=maven-archetype-quickstart 
    -DinteractiveMode=false
 
-mvn archetype:generate -DgroupId=com.week01
-   -DartifactId=S_Algorithms
+mvn archetype:generate -DgroupId=org.apache.commons
+   -DartifactId=apache_commons
    -DarchetypeArtifactId=maven-archetype-quickstart 
    -DinteractiveMode=false
 
