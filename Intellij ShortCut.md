@@ -1,4 +1,10 @@
+##Create
+```
+1. Create jUnit Test: Ctrl + Shift + T or Naviage->Test
 
+```
+
+##Search
 ```
 ALT+SHIFT+F10 => Enter arguments for main method
 Ctrl + H => find hierarchy for class
