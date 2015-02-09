@@ -6,8 +6,8 @@ mvn archetype:generate -DgroupId={project-packaging}
    -DarchetypeArtifactId=maven-archetype-quickstart 
    -DinteractiveMode=false
 
-mvn archetype:generate -DgroupId=org.apache.commons
-   -DartifactId=apache_commons
+mvn archetype:generate -DgroupId=com.javase
+   -DartifactId=java_se
    -DarchetypeArtifactId=maven-archetype-quickstart 
    -DinteractiveMode=false
 
