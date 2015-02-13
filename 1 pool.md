@@ -12,8 +12,9 @@ mvn archetype:generate -DgroupId=org.apache.cli
    -DinteractiveMode=false
 
 1. Using mavn to build jar file
-1) add this plugin to pom.xml
 ```
+1) add this plugin to pom.xml
+
 	<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.2</version>
