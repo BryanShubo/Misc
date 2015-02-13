@@ -14,8 +14,9 @@ mvn archetype:generate -DgroupId=org.apache.cli
 1. Using mavn to build jar file
 ```
 1) add this plugin to pom.xml
-
-	<plugin>
+        <build>
+                <plugins>        
+	                <plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
@@ -30,6 +31,8 @@ mvn archetype:generate -DgroupId=org.apache.cli
 					</archive>
 				</configuration>
 			</plugin>
+		</plugins>
+	<build>	
 ```
 			
 2) mvn clean compile assembly:assembly
