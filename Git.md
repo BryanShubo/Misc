@@ -1,18 +1,9 @@
 ####1. Configuration
 ####2. Remote Repo Commands
-####3. Local Repo Commands
-####4. Git Workflow
-####5. Git Misc Commands
-####6. Git Alias
-####7. Git troubleshooting
-####8. Git empty repository
-
 
 ####1. Configuration
 ```
 1.1 git config --global user.name "[name]"
-```
-```
 1.2 git config --global user.email "[email address]"
 ```
 ```
@@ -23,7 +14,7 @@
 1.4 git config -l //view git configs
 ```
 
-####2.Repo Commands
+####2.Remote Repo Commands
 ```
 2.1 git init //initialize a git repo in the current directory
 ```
@@ -47,6 +38,17 @@
 ```
 
 ####3. Make Changes
+#####3.1 git status
+```
+git status // lists all new or modified unstaged files
+git status -b // show the branch and tracking info
+```
+#####3.2 git diff
+```
+git diff            //changes in the working tree not yet staged for the next commit
+git diff --cached   (2)
+git diff HEAD       (3)
+```
 #####3.1 git add
 ```
  git add <file.name>  //start tracking file.name
@@ -55,7 +57,7 @@
  git add . //stages new and modified, without deleted;
 ```
 
-####4. git branch
+#####3.2 git branch
 ```
 git branch // 
 git branch -r -- view available local remote branches
