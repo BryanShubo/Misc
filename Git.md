@@ -77,21 +77,28 @@ git reset --soft //undo a commit, does not touch the index file or the working t
 
 #####3.5 git rm
 ```
-3.5 git rm --cached -- remove file from the index but not working dir
-    git rm $(git ls-files --deleted)
-    
+git rm --cached //remove file from the index but not working dir
+git rm $(git ls-files --deleted) // With red color(--deleted files), "git add -A". 
+                                 //Deleted files become green color. Then "git commit -m 'delete files'"
 ```  
 
-#####3.2 git branch
+####4. Branching and Merging
+#####4.1 git branch
 ```
-git branch // 
-git branch -r -- view available local remote branches
-git branch -vv -- view the tracking branch
-git branch <branch_name> -- create a new branch
+git branch // list local branches
+git branch [branch_name] //create a new branch
+git branch -d [branch_name] //delete a branch (locally !!!)
+                            //The branch must be fully merged in its upstream branch, or in HEAD if no upstream was set with                             //-track or --set-upstream.
+git branch -D [branch_name] // delete a branch irrespective of ites merged status.                            
+git branch -r //view available local remote branches
+git branch -vv //view the tracking branch
+git branch -a //List both remote-tracking branches and local branches
+git branch -u //setup upstream
+
 git checkout <branch_name> -- switch to a new branch
 git checkout master  -- switch to master branch
 git merge <branch_name>  -- merge <branch_name> into master
-git branch -d <branch_name> -- delete a branch (locally !!!)
+
 git push origin --delete <branchName>  -- delete a remote branch
 or git push origin :<branchName>
 git push  -- commit master
@@ -103,7 +110,7 @@ git push  -- commit master
 ```
 3.4 
 ```
-  With red color(--deleted files), "git add -A". Deleted files become green color. Then "git commit -m 'delete files'"
+  
 ```
 ```
 3.6 git clean -f -X -d -- remove all unstaged files (great for cleaning up after a build)
