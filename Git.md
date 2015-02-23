@@ -46,7 +46,7 @@ git status -b // show the branch and tracking info
 #####3.2 git diff
 ```
 git diff            //changes in the working tree not yet staged for the next commit
-git diff --cached   (2)
+git diff --cached   
 git diff HEAD       (3)
 ```
 #####3.1 git add
