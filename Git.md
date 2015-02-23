@@ -12,7 +12,7 @@
 
 
 ```
-1.1  git init //initialize a git repo in the current directory
+1.1 git init //initialize a git repo in the current directory
 1.2 git config -l //view git configs
 1.3 git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080 
 //set http proxy in git config
@@ -41,7 +41,15 @@
 2.7 git remote -v //verify new remote
 ```
 
-####3.Local Repo Commands
+####3.git add
+```
+ git add <file.name>  //start tracking file.name
+ git add -A  //stages All (modified, deleted, untracted, and new files);
+ git add -u  //stages modified and deleted, without new;
+ git add . //stages new and modified, without deleted;
+```
+
+
 ```
 3.1 git branch -r -- view available local remote branches
     git branch -vv -- view the tracking branch
@@ -91,10 +99,7 @@
 ```
 
 ```
-3.11 git add <file.name>  -- start tracking file.name
- git add -A  -- stages All (modified, deleted, untracted, and new files);
- git add -u  -- stages modified and deleted, without new;
- git add . -- stages new and modified, without deleted;
+3.11 
 ```
 
 ```
