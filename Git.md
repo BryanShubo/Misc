@@ -24,32 +24,30 @@
 ```
 
 ####2.Repo Commands
-
 ```
 2.1 git init //initialize a git repo in the current directory
+```
+```
 2.2 git clone https://github.com/user/repo.git -o notorigin 
     //sets the remote to "notorigin"
 ```
 ```
-2.2 git remote add origin https://github.com/user/repo.git //set a new remote
+2.3 git remote add origin https://github.com/user/repo.git 
+    //set a new remote
 ```
 ```
-2.3 git remote set-url origin https://github.com/user/repo2.git //change the remote URL for origin
+2.4 git remote set-url origin https://github.com/user/repo2.git 
+    //change the remote URL for origin
 ```
 ```
-2.4 git remote update //update the local repo with remote tracking branches. Use this if you don't see you branch using git branch -r
+2.5 git remote update //update the local repo with remote tracking branches. Use this if you don't see you branch using git branch -r
 ```
 ```
-2.5 git remote prune origin //remove stale tracking branches
-```
-```
-2.6 git branch -r //contains origin/my_release -- find all remote branches that contain the commits in my_release branch
-```
-```
-2.7 git remote -v //verify new remote
+2.6 git remote -v //verify new remote
 ```
 
-####3.git add
+####3. Make Changes
+#####3.1 git add
 ```
  git add <file.name>  //start tracking file.name
  git add -A  //stages All (modified, deleted, untracted, and new files);
@@ -71,6 +69,7 @@ git push origin --delete <branchName>  -- delete a remote branch
 or git push origin :<branchName>
 git push  -- commit master
 ```
+
 ```
 3.2 git status -- show current state of project
 ```
