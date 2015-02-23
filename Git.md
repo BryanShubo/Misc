@@ -45,16 +45,34 @@ git status -b // show the branch and tracking info
 ```
 #####3.2 git diff
 ```
+3.2.1 Various ways to check your working tree
 git diff            //changes in the working tree not yet staged for the next commit
-git diff --cached   
-git diff HEAD       (3)
+git diff --cached   //Changes between the index and your last commit; 
+                    //what you would be committing if you run "git commit" without "-a" option.
+git diff HEAD       //Changes in the working tree since your last commit; 
+                    //what you would be committing if you run "git commit -a"
+git diff --stated  //show the change you just staged;
 ```
-#####3.1 git add
+```
+3.2.2 Comparing branches
+git diff topic master    //Changes between the tips of the topic and the master branches.
+git diff topic..master   //Same as above.
+git diff topic...master  //Changes that occurred on the master branch since when the topic branch was started off it.
+```
+#####3.3 git add
 ```
  git add <file.name>  //start tracking file.name
  git add -A  //stages All (modified, deleted, untracted, and new files);
  git add -u  //stages modified and deleted, without new;
  git add . //stages new and modified, without deleted;
+```
+
+#####3.4 git reset
+```
+git reset HEAD [file.name] //unstage a single file
+git reset --hard HEAD //undo commits permanently, reset your local branch to the HEAD commit 
+git reset --soft //undo a commit, does not touch the index file or the working tree at all, \
+                 //but resets the head to <commit>
 ```
 
 #####3.2 git branch
@@ -73,15 +91,10 @@ git push  -- commit master
 ```
 
 ```
-3.2 git status -- show current state of project
-```
-```
 3.3 git checkout --track origin/serverfix -- change the tracking branch
 ```
 ```
-3.4 git diff --cached -- shows changes in index
-    git diff HEAD -- show the diff of the most recent commit;
-    git diff --stated  --show the change you just staged;
+3.4 
 ```
 ```
 3.5 git rm --cached -- remove file from the index but not working dir
@@ -93,10 +106,7 @@ git push  -- commit master
 3.6 git clean -f -X -d -- remove all unstaged files (great for cleaning up after a build)
 ```
 
-```
-3.7 git reset --hard HEAD -- reset your local branch to the HEAD commit
-    git reset <file.name> -- unstage the file
-```
+
 ```
 3.8 git checkout HEAD -- folder1/pom.xml -- reset a single file to the HEAD commit
 ```
