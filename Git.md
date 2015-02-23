@@ -16,7 +16,6 @@
 1.2 git config --global user.email "[email address]"
 ```
 ```
-```
 1.3 git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080 
     //set http proxy in git config
 ```
