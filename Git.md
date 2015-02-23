@@ -12,36 +12,33 @@
 
 
 ```
-1.1  git init -- initialize a git repo in the current directory (you still need to add and commit the local files)
-```
-```
-1.2 git config -l -- view git configs
-```
-```
-1.3 git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080 -- set http proxy in git config
+1.1  git init //initialize a git repo in the current directory
+1.2 git config -l //view git configs
+1.3 git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080 
+//set http proxy in git config
 ```
 
 ####2.Remote Repo Commands
 ```
-2.1 git clone https://github.com/user/repo.git -o notorigin -- sets the remote to "notorigin"
+2.1 git clone https://github.com/user/repo.git -o notorigin //sets the remote to "notorigin"
 ```
 ```
-2.2 git remote add origin https://github.com/user/repo.git -- set a new remote
+2.2 git remote add origin https://github.com/user/repo.git //set a new remote
 ```
 ```
-2.3 git remote set-url origin https://github.com/user/repo2.git -- change the remote URL for origin
+2.3 git remote set-url origin https://github.com/user/repo2.git //change the remote URL for origin
 ```
 ```
-2.4 git remote update -- update the local repo with remote tracking branches. Use this if you don't see you branch using git branch -r
+2.4 git remote update //update the local repo with remote tracking branches. Use this if you don't see you branch using git branch -r
 ```
 ```
-2.5 git remote prune origin -- remove stale tracking branches
+2.5 git remote prune origin //remove stale tracking branches
 ```
 ```
-2.6 git branch -r --contains origin/my_release -- find all remote branches that contain the commits in my_release branch
+2.6 git branch -r //contains origin/my_release -- find all remote branches that contain the commits in my_release branch
 ```
 ```
-2.7 git remote -v -- verify new remote
+2.7 git remote -v //verify new remote
 ```
 
 ####3.Local Repo Commands
