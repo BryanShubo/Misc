@@ -9,18 +9,27 @@
 
 
 ####1. Configuration
-
-
 ```
-1.1 git init //initialize a git repo in the current directory
-1.2 git config -l //view git configs
+1.1 git config --global user.name "[name]"
+```
+```
+1.2 git config --global user.email "[email address]"
+```
+```
+```
 1.3 git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080 
-//set http proxy in git config
+    //set http proxy in git config
+```
+```
+1.4 git config -l //view git configs
 ```
 
-####2.Remote Repo Commands
+####2.Repo Commands
+
 ```
-2.1 git clone https://github.com/user/repo.git -o notorigin //sets the remote to "notorigin"
+2.1 git init //initialize a git repo in the current directory
+2.2 git clone https://github.com/user/repo.git -o notorigin 
+    //sets the remote to "notorigin"
 ```
 ```
 2.2 git remote add origin https://github.com/user/repo.git //set a new remote
@@ -49,18 +58,19 @@
  git add . //stages new and modified, without deleted;
 ```
 
-
+####4. git branch
 ```
-3.1 git branch -r -- view available local remote branches
-    git branch -vv -- view the tracking branch
-    git branch <branch_name> -- create a new branch
-    git checkout <branch_name> -- switch to a new branch
-    git checkout master  -- switch to master branch
-    git merge <branch_name>  -- merge <branch_name> into master
-    git branch -d <branch_name> -- delete a branch (locally !!!)
-    git push origin --delete <branchName>  -- delete a remote branch
-    or git push origin :<branchName>
-    git push  -- commit master
+git branch // 
+git branch -r -- view available local remote branches
+git branch -vv -- view the tracking branch
+git branch <branch_name> -- create a new branch
+git checkout <branch_name> -- switch to a new branch
+git checkout master  -- switch to master branch
+git merge <branch_name>  -- merge <branch_name> into master
+git branch -d <branch_name> -- delete a branch (locally !!!)
+git push origin --delete <branchName>  -- delete a remote branch
+or git push origin :<branchName>
+git push  -- commit master
 ```
 ```
 3.2 git status -- show current state of project
