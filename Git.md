@@ -75,6 +75,13 @@ git reset --soft //undo a commit, does not touch the index file or the working t
                  //but resets the head to <commit>
 ```
 
+#####3.5 git rm
+```
+3.5 git rm --cached -- remove file from the index but not working dir
+    git rm $(git ls-files --deleted)
+    
+```  
+
 #####3.2 git branch
 ```
 git branch // 
@@ -96,11 +103,7 @@ git push  -- commit master
 ```
 3.4 
 ```
-```
-3.5 git rm --cached -- remove file from the index but not working dir
-    git rm $(git ls-files --deleted)
-    
-    With red color(--deleted files), "git add -A". Deleted files become green color. Then "git commit -m 'delete files'"
+  With red color(--deleted files), "git add -A". Deleted files become green color. Then "git commit -m 'delete files'"
 ```
 ```
 3.6 git clean -f -X -d -- remove all unstaged files (great for cleaning up after a build)
