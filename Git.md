@@ -58,6 +58,7 @@ git diff --stated  //show the change you just staged;
 git diff topic master    //Changes between the tips of the topic and the master branches.
 git diff topic..master   //Same as above.
 git diff topic...master  //Changes that occurred on the master branch since when the topic branch was started off it.
+git diff-tree -r --root 40a450274b128348ec30d69abc51981ea7be20df -- see a full diff-tree
 ```
 #####3.3 git add
 ```
@@ -81,6 +82,11 @@ git rm --cached //remove file from the index but not working dir
 git rm $(git ls-files --deleted) // With red color(--deleted files), "git add -A". 
                                  //Deleted files become green color. Then "git commit -m 'delete files'"
 ```  
+
+#####3.6 git commit
+```
+git commit -m ['add a message'] //files are listed in stating area.
+```
 
 ####4. Branching and Merging
 #####4.1 git branch
@@ -110,8 +116,8 @@ git checkout -b [branch_name]// Create a new branch named [new_branch] and start
 git checkout -B [branch_name]// Creates the branch <new_branch> and start it at <start_point>; 
                 //if it already exists, then reset it to <start_point>.
 git checkout -b [branch_name] master // create a new branch and start it at master                
-git checkout --track origin/serverfix // change the tracking branch                
-
+git checkout --track origin/serverfix // change the tracking branch    
+git checkout HEAD --folder1/pom.xml //reset a single file to the HEAD commit
 ```
 
 #####4.3 git merge
@@ -122,42 +128,28 @@ git merge [branch-name] --no-commit // perform the merge but pretend the merge f
 git merge --abort // only works when there are conflicts for git merge
 
 ```
+
+#####4.4 git log
 ```
-3.4 
+git log -- show all changes we have committed so far.
+```
+
+
+####5. Sharing and Updating Projects
+```
 
 git push origin --delete <branchName>  -- delete a remote branch
 or git push origin :<branchName>
 git push  -- commit master
-```
-  
-```
-```
-3.6 git clean -f -X -d -- remove all unstaged files (great for cleaning up after a build)
+git clean -f -X -d -- remove all unstaged files (great for cleaning up after a build)
+git show-ref -- shows the refs for the repo (still figuring this out)
+git filter-branch --prune-empty --subdirectory-filter lib master -- split out a sub dir into a repository
 ```
 
 
-```
-3.8 git checkout HEAD -- folder1/pom.xml -- reset a single file to the HEAD commit
-```
-```
-3.9 git show-ref -- shows the refs for the repo (still figuring this out)
-```
 
-```
-3.10 git filter-branch --prune-empty --subdirectory-filter lib master -- split out a sub dir into a repository
-```
 
-```
-3.11 
-```
 
-```
-3.12 git commit -m 'add a message' -- files are listed in stating area.
-```
-
-```
-3.13 git log -- show all changes we have committed so far.
-```
 
 ####4. Git Workflow
 ```
@@ -176,10 +168,7 @@ git push  -- commit master
 4.4 git push origin :john-dev-2 -- delete the remote feature branch (see the git-scm page)
 ```
 
-###5. Git Misc Commands
-```
-5.1 git diff-tree -r --root 40a450274b128348ec30d69abc51981ea7be20df -- see a full diff-tree
-```
+
 
 ####6. Git Alias
 ```
