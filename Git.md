@@ -119,13 +119,15 @@ git checkout --track origin/serverfix // change the tracking branch
 git merge [branch_name]  // merge [branch_name] into master
 git merge [branch_name] --commit // Perform the merge and commit the result.
 git merge [branch-name] --no-commit // perform the merge but pretend the merge failed and do not autocommit, to give the user                                     // a chance to inspect and further tweak the merge result before committing.
+git merge --abort // only works when there are conflicts for git merge
+
+```
+```
+3.4 
 
 git push origin --delete <branchName>  -- delete a remote branch
 or git push origin :<branchName>
 git push  -- commit master
-```
-```
-3.4 
 ```
   
 ```
