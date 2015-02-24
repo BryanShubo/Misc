@@ -106,9 +106,10 @@ git branch --no-merged [<commit>] //Only list branches whose tips are not reacha
 git checkout [file_name] // Discard changes in working directory
 git checkout [branch_name] // switch to a new branch
 git checkout master  // switch to master branch
-git checkout -b // Create a new branch named [new_branch] and start it at [start_point]
-git checkout -B // Creates the branch <new_branch> and start it at <start_point>; 
+git checkout -b [branch_name]// Create a new branch named [new_branch] and start it at [start_point]
+git checkout -B [branch_name]// Creates the branch <new_branch> and start it at <start_point>; 
                 //if it already exists, then reset it to <start_point>.
+git checkout -b [branch_name] master // create a new branch and start it at master                
 git checkout --track origin/serverfix // change the tracking branch                
 
 ```
@@ -116,6 +117,8 @@ git checkout --track origin/serverfix // change the tracking branch
 #####4.3 git merge
 ```
 git merge [branch_name]  // merge [branch_name] into master
+git merge [branch_name] --commit // Perform the merge and commit the result.
+git merge [branch-name] --no-commit // perform the merge but pretend the merge failed and do not autocommit, to give the user                                     // a chance to inspect and further tweak the merge result before committing.
 
 git push origin --delete <branchName>  -- delete a remote branch
 or git push origin :<branchName>
