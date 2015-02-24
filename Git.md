@@ -94,7 +94,15 @@ git branch -r //view available local remote branches
 git branch -vv //view the tracking branch
 git branch -a //List both remote-tracking branches and local branches
 git branch -u //setup upstream
-
+git branch --contains [<commit>] //Only list branches which contain the specified commit (HEAD if not specified). 
+                                 //Implies --list.
+git branch --merged [<commit>] //Only list branches whose tips are reachable from the specified commit 
+                               //(HEAD if not specified). Implies --list.
+git branch --no-merged [<commit>] //Only list branches whose tips are not reachable from the specified commit 
+                                  //(HEAD if not specified). Implies --list.
+```
+#####4.2 git checkout
+```
 git checkout <branch_name> -- switch to a new branch
 git checkout master  -- switch to master branch
 git merge <branch_name>  -- merge <branch_name> into master
