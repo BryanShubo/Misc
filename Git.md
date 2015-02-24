@@ -31,7 +31,8 @@
     //change the remote URL for origin
 ```
 ```
-2.5 git remote update //update the local repo with remote tracking branches. Use this if you don't see you branch using git branch -r
+2.5 git remote update //update the local repo with remote tracking branches. 
+                      //Use this if you don't see you branch using git branch -r
 ```
 ```
 2.6 git remote -v //verify new remote
@@ -47,45 +48,53 @@ git status -b // show the branch and tracking info
 ```
 3.2.1 Various ways to check your working tree
 git diff            //changes in the working tree not yet staged for the next commit
-git diff --cached   //Changes between the index and your last commit; 
-                    //what you would be committing if you run "git commit" without "-a" option.
-git diff HEAD       //Changes in the working tree since your last commit; 
+git diff --cached   //Changes between the index and your last commit
+                    //what you would be committing if you run "git commit" without "-a" option
+git diff HEAD       //Changes in the working tree since your last commit 
                     //what you would be committing if you run "git commit -a"
-git diff --stated  //show the change you just staged;
+git diff --staged  //show the difference between staging and the last file version 
 ```
 ```
 3.2.2 Comparing branches
-git diff topic master    //Changes between the tips of the topic and the master branches.
-git diff topic..master   //Same as above.
-git diff topic...master  //Changes that occurred on the master branch since when the topic branch was started off it.
+git diff topic master    //Changes between the tips of the topic and the master branches
+git diff topic..master   //Same as above
+git diff topic...master  //Changes that occurred on the master branch since when the topic branch was started off it
 git diff-tree -r --root 40a450274b128348ec30d69abc51981ea7be20df -- see a full diff-tree
+it diff [first-branch]...[second-branch] // Shows content differences between two branches
 ```
+
+```
+git show [commit] // Outputs metadata and content changes of the specified commit
+```
+
 #####3.3 git add
 ```
  git add <file.name>  //start tracking file.name
- git add -A  //stages All (modified, deleted, untracted, and new files);
- git add -u  //stages modified and deleted, without new;
- git add . //stages new and modified, without deleted;
+ git add -A  //stages All (modified, deleted, untracted, and new files)
+ git add -u  //stages modified and deleted, without new
+ git add . //stages new and modified, without deleted
 ```
 
 #####3.4 git reset
 ```
 git reset HEAD [file.name] //unstage a single file
 git reset --hard HEAD //undo commits permanently, reset your local branch to the HEAD commit 
-git reset --soft //undo a commit, does not touch the index file or the working tree at all, \
+git reset --soft //undo a commit, does not touch the index file or the working tree at all,
                  //but resets the head to <commit>
+git reset [commit] // Undoes all commits afer [commit], preserving changes locally
+git reset --hard [commit] // Discards all history and changes back to the specified commit
 ```
 
 #####3.5 git rm
 ```
 git rm --cached //remove file from the index but not working dir
-git rm $(git ls-files --deleted) // With red color(--deleted files), "git add -A". 
+git rm $(git ls-files --deleted) // With red color(--deleted files), "git add -A" 
                                  //Deleted files become green color. Then "git commit -m 'delete files'"
 ```  
 
 #####3.6 git commit
 ```
-git commit -m ['add a message'] //files are listed in stating area.
+git commit -m ['add a message'] //files are listed in stating area
 ```
 
 ####4. Branching and Merging
@@ -94,8 +103,9 @@ git commit -m ['add a message'] //files are listed in stating area.
 git branch // list local branches
 git branch [branch_name] //create a new branch
 git branch -d [branch_name] //delete a branch (locally !!!)
-                            //The branch must be fully merged in its upstream branch, or in HEAD if no upstream was set with                             //-track or --set-upstream.
-git branch -D [branch_name] // delete a branch irrespective of ites merged status.                            
+                            //The branch must be fully merged in its upstream branch, or in HEAD if no upstream 
+                            //was set with -track or --set-upstream
+git branch -D [branch_name] // delete a branch irrespective of ites merged status                           
 git branch -r //view available local remote branches
 git branch -vv //view the tracking branch
 git branch -a //List both remote-tracking branches and local branches
@@ -124,23 +134,46 @@ git checkout HEAD --folder1/pom.xml //reset a single file to the HEAD commit
 ```
 git merge [branch_name]  // merge [branch_name] into master
 git merge [branch_name] --commit // Perform the merge and commit the result.
-git merge [branch-name] --no-commit // perform the merge but pretend the merge failed and do not autocommit, to give the user                                     // a chance to inspect and further tweak the merge result before committing.
+git merge [branch-name] --no-commit // perform the merge but pretend the merge failed and do not autocommit, 
+                                    // to give the user a chance to inspect and further tweak the merge 
+                                    // result before committing.
 git merge --abort // only works when there are conflicts for git merge
-
 ```
 
 #####4.4 git log
 ```
-git log -- show all changes we have committed so far.
+git log // show all changes we have committed so far
+git log --follow [file] // Lists version history for a file, including renames
 ```
 
+#####4.5 Save Fragments: Shelve and restore incomplete changes
+```
+git stash // Temporarily stores all modified tracked files
+git stash list //Lists all stashed changesets
+git stash pop // Restores the most recently stashed files
+git stash drop //Discards the most recently stashed changeset
+```
 
 ####5. Sharing and Updating Projects
 ```
+5.1 git fetch
+git fetch [bookmark] // Downloads all history from the repository bookmark
+```
 
-git push origin --delete <branchName>  -- delete a remote branch
+```
+5.2 git push
+git push [alias] [branch] // Uploads all local branch commits to GitHub
+```
+
+```
+5.3 git pull
+git pull // Downloads bookmark history and incorporates changes
 or git push origin :<branchName>
 git push  -- commit master
+git push origin --delete <branchName>  -- delete a remote branch
+```
+
+```
 git clean -f -X -d -- remove all unstaged files (great for cleaning up after a build)
 git show-ref -- shows the refs for the repo (still figuring this out)
 git filter-branch --prune-empty --subdirectory-filter lib master -- split out a sub dir into a repository
@@ -148,29 +181,26 @@ git filter-branch --prune-empty --subdirectory-filter lib master -- split out a 
 
 
 
-
-
-
-####4. Git Workflow
+####6. Git Workflow
 ```
-4.1 git checkout -b john-dev-2 origin/release-1.0.0 -- check out from a remote branch
+6.1 git checkout -b john-dev-2 origin/release-1.0.0 -- check out from a remote branch
 ```
 
 ```
-4.2 git push -u origin john-dev-2 -- push feature branch to remote repo
+6.2 git push -u origin john-dev-2 -- push feature branch to remote repo
 ```
 
 ```
-4.3 git pull origin john-dev-2 -- pull feature branch
+6.3 git pull origin john-dev-2 -- pull feature branch
 ```
 
 ```
-4.4 git push origin :john-dev-2 -- delete the remote feature branch (see the git-scm page)
+6.4 git push origin :john-dev-2 -- delete the remote feature branch (see the git-scm page)
 ```
 
 
 
-####6. Git Alias
+####7. Git Alias
 ```
 Edit your ~/.gitconfig to add useful git aliases. see (Effective pull requests and other good practices for teams using github)
 [alias]
@@ -178,7 +208,7 @@ Edit your ~/.gitconfig to add useful git aliases. see (Effective pull requests a
     %C(green)%ad%C(reset) %C(blue)[%an]%C(reset)\" --relative-date --decorate
 ```
 
-####7. Git troubleshooting
+####8. Git troubleshooting
 ```
 to debug problems with an HTTP proxy set the environmental variable GIT_CURL_VERBOSE=1
 The ours merge technique to replace master
@@ -188,7 +218,7 @@ git checkout seotweaks
         git merge seotweaks
 ```
 
-####8. Git empty repository
+####9. Git empty repository
 
 You have an empty repository
 To get started you will need to run these commands in your terminal.
