@@ -1,5 +1,11 @@
 ####1. Configuration
 ####2. Remote Repo Commands
+####3. Make Changes
+####4. Branching and Merging
+####5. Sharing and Updating Projects
+####6. Git Workflow
+####7. Git Alias
+
 
 ####1. Configuration
 ```
@@ -44,6 +50,7 @@
 git status // lists all new or modified unstaged files
 git status -b // show the branch and tracking info
 ```
+
 #####3.2 git diff
 ```
 3.2.1 Various ways to check your working tree
