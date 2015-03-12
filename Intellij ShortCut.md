@@ -1,3 +1,17 @@
+##Navigate
+```
+1. Ctrl+F12 : list all methods and fields in the class
+1. Ctrl+B : navigate to the declaration (This is almost always followed by Ctrl + Alt + Left to get back to where I was (Ctrl + Alt + Right works to “go forward” again)
+Ctrl + Alt + B, (Go to implementation)
+2. Ctrl+N	Go to class
+Ctrl+Shift+N	Go to file
+Ctrl+Alt+Shift+N	Go to symbol
+Ctrl+H	Type hierarchy
+Ctrl+Q open JavaDoc
+
+```
+
+
 ##Create
 ```
 1. Create jUnit Test: Ctrl + Shift + T or Naviage->Test
@@ -12,57 +26,29 @@ Use multiple selection. For example, if a certain string has been highlighted as
 
 ##Search
 ```
-ALT+SHIFT+F10 => Enter arguments for main method
-Ctrl + H => find hierarchy for class
-1. control+F12  => list all methods in the class
-2. control + N => pop out a search box for searching a class
-3. ctr +alt+shift+N => pop out a search box for any symbol
-4. Go to Declaration. Use this to navigate to the declaration of a class, method or variable used somewhere in the code: Ctrl+B
-5. Introduce Variable Refactoring, to create a variable from an expression. This expression may even be incomplete or contain errors. Since version 8, IDEA intelligently selects a likely expression when no text is selected: Ctrl+Alt+V
-6. To open any file, not just classes: Ctrl+Shift+N
-7. Comment/Uncomment current line or selection: Ctrl+/ and Ctrl+Shift+/
-8. Quick JavaDoc Popup to show the JavaDoc of the method or class at the text cursor: Ctrl+Q (Ctrl+J on Mac OS X)
-9. Smart Type Completion to complete an expression with a method call or variable with a type suitable in the current Context: Ctrl+Shift+Space
-
-10. Rename refactoring to rename any identifier. Can look in comments, text files and across different languages too: Shift+F6
-
-11. Select in Popup to quickly select the currently edited element (class, file, method or field) in any view (Project View, Structure View or other): Alt+F1
-
-12. Highlight Usages in File. Position the text cursor on any identifier without selecting any text and it will show all places in the file where that variable, method etc. is used. Use it on a throws, try or catch keyword to show all places where the exception is thrown. Use it on the implements keyword to highlight the methods of the implemented interface: Ctrl+Shift+F7
-
-13. By far my favourite all purpose shortcut is Ctrl+Shift+A
-
-It does a search as you type through all the commands in intellij. Not only that but when you find the command you want it also displays the corresponding shortcut key next to it!
-
 14. Alt + F7 : Find usages.
-
-Ctrl + Shift + Enter - automatically completes the code statement you are typing, inserting the quotation marks, brackets, curly braces and other punctuation as necessary.
-
+Ctrl+Shift+A : find action
 
 
-Ctrl + F11 invokes a dialog with all alphanumeric keys on the keyboard. Selecting one empty will add the current line to bookmarks and mark the line with selected key.
-
-Shift + F11 invokes a list of bookmarks. Pressing a key takes to associated bookmark.
+ALT+SHIFT+F10 => Enter arguments for main method
 
 
+```
+
+##Editing
+```
 
 Shift+Delete deletes the entire line (will 'cut' it to clipboard)
 
 Ctrl+Shift+O  reformat code
+Ctrl + Alt + T: Surround code block. Another useful stuff.
 
 Ctrl+Shift+J to join lines (pull content of next line up to current line).
 
 
 Alt + Ins: Works consistently to insert anything. (Add a new class, method etc)
-Ctrl + Alt + T: Surround code block. Another useful stuff.
 
-
-
-Here are the Intellij IDEA keyboard shortcuts I find most useful (listed in roughly the order of usage for me):
-
-The shortcut I use the most is Ctrl + B (Go to declaration), to see what a method does, where a variable is declared etc. This is almost always followed by Ctrl + Alt + Left to get back to where I was (Ctrl + Alt + Right works to “go forward” again).
-
-A related navigation shortcut is Ctrl + Alt + B, (Go to implementation). Press it when the caret is at the method name of an interface, and you get a pop-up list of all the places where this method is implemented, and you can select which one you want to go to (if there is only one implementation, you go straight there). The same goes for overridden methods.
+A related navigation shortcut is . Press it when the caret is at the method name of an interface, and you get a pop-up list of all the places where this method is implemented, and you can select which one you want to go to (if there is only one implementation, you go straight there). The same goes for overridden methods.
 
 The opposite of this is Ctrl + U (Go to super-method/super-class). If the caret is at the implementation of a method in an interface (indicated by the little green interface-symbol in the left gutter), this shortcut takes you to the interface itself.
 
