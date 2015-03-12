@@ -1,25 +1,18 @@
 ##Navigate
 ```
 1. Ctrl+F12 : list all methods and fields in the class
-1. Ctrl+B : navigate to the declaration (This is almost always followed by Ctrl + Alt + Left to get back to where I was (Ctrl + Alt + Right works to “go forward” again)
-Ctrl + Alt + B, (Go to implementation)
-Ctrl + U (Go to super-method/super-class)
-2. Ctrl+N	Go to class
-Ctrl+Shift+N	Go to file
-Ctrl+Alt+Shift+N	Go to symbol
-Ctrl+H	Type hierarchy
-Ctrl+Q Quick JavaDocdocumentation lookup
-
-I use Ctrl + Alt + F7 (Show usage
-14. Alt + F7 : Find usages.
-
-Ctrl + P (Parameter info) at the arguments of methods and constructors
-
-If there are errors in the file, F2/Shift + F2 (Next/previous highlighted error) will jump to them.
-
-
-I use the sequence Alt + C, N (Show Changes View) to see which files in the project I have modified compared to the subversion repository. To diff the current file against the version in the subversion repository, I use the sequence Alt + C, S, Y (Compare with the Same Repository Version). In the diff view, I use F7/Shift + F7 to navigate between the changes.
-Ctrl+Shift+A : find action
+2. Ctrl+B : navigate to the declaration (Ctrl + Alt + Left to get back and Ctrl + Alt + Right to go forward)
+3. Ctrl + Alt + B : go to implementation
+4. Ctrl + U : go to super-method/super-class
+5. Ctrl+N	: go to class
+6. Ctrl+Shift+N	: go to file
+7. Ctrl+Alt+Shift+N	: go to symbol
+8. Ctrl+H :	type hierarchy
+9. Ctrl+Q : quick JavaDocdocumentation lookup
+10. Ctrl + Alt + F7 : show usage
+11. Alt + F7 : find all usages
+12. Ctrl + P : parameter info at the arguments of methods and constructors
+13. F2 / (Shift + F2) : Next/previous highlighted errors will jump to them.
 ```
 ##Editing
 ```
