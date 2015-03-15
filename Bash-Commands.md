@@ -2,6 +2,251 @@
 
 Creating a cheating command list.
 ```
+Basic Operations:
+Relative pathname: .(present directory)   ..(parent directory)   ~(home directory)
+cd // change to home directory
+cd .. // change to upper directory
+cd - // change to previous directory
+cd /  // change to root directory
+pwd // present working directory
+cat
+echo
+ls // list the contents in pwd
+ls -a // list all files including hidden files and folders
+tree // display a tree view of the filesystem
+tree -d // display a tree view for the current directory
+man
+exit
+login: ssh username@remote-server.com // secure shell(SSH)
+
+```
+
+Searching for files
+```
+locate // get the directory of a file
+updatedb
+wildcard: ? // match any single character
+          * // match any string of characters
+          [set] // matches any character in the set of characters
+          [!set] // matches any character not in the set of characters
+find // list all files in the current and all of its subdirectories.
+find -type (f //regular file, d // directory, I // symbolic link)
+find -name (files with certain pattern)
+find -iname (ignore the case of file names)
+find -name "*.md" -exec rm {} ';' // find and remove all of files with ".md"
+find -ctime 3
+find -atime
+find -mtime
+find -size +10M  // + means greater, - means less, without + or - means exact number
+find / // find everything from root directory
+grep
+
+```
+
+Working with files
+```
+cat // view the file without scroll-back
+tac // look at the file backwards, starting with the last line
+less // view the file with scroll-back
+tail // print last 10 lines by default
+head // print first 10 lines by default
+
+
+mkdir // create a directory
+touch // used to set or update the access, change, and modify times of files.
+touch <filename> // create an empty file
+
+mv // rename a file or folder
+rm <filename> // remove a file
+rm -f <filename> // forcefully remove a file
+rm -i <filename> // interactively remove a file
+rmdir // only remove an empty dirctory
+rm -rf // forcefully remove a directory recursively
+
+sudo apt-cache search <software_name>
+sudo apt-get install <software_name>
+sudo apt-get remove <software_name>
+sudo apt-get upgrade <software_name>
+```
+
+Comparing files and file types
+```
+diff <filename1> <filename2>
+diff -c // provides a listing of differences that include 3 lines of context before and after the lines differing in content
+diff -i // ignore the case of letters
+diff -w // ignore differences in spaces and tabs (white space)
+diff -r // used to recursively compare subdirectories as well as the current directory
+diff3 // comparing three files at once
+
+file <filename or folder> // determin type of files
+```
+
+Backing up and compressing data
+```
+cp // can only copy files to and from destinations on the local machine
+rsync // can also copy files from one machine to another.
+rsync -r project-x archive-machine:archives/project-x
+
+gzip * // compress all files in the current directory; each file is compresssed and renamed with a .gz extension
+gzip -r projectX // compress all files in the projectX directory along with all files in all of the directories under projectX
+gunzip fool // De-compress foo found in the file foo.gz. under the hood, gunzip command is actually the same as gzip -d
+
+bzip2 *
+bunzip2 *.bz2 // the same as bzip2 -d
+
+xz *
+xz foo
+xz -dkbar.xz
+xy -dcf a.txt b.txt.xz > abcd.txt
+xz -d *.xz
+
+zip backup *
+zip -r back.zip ~
+unzip backup.zip
+
+tar scf mydir.tar
+tar zcvf mydir.tar.gz mydir
+tar jcvf mydir.tar.bz2 mydir
+tar Jcvf mydir.tar.bz2 mydir
+tar xvf mydir.tar.gz
+
+disk-to-disk copying
+
+```
+
+User Environment
+```
+who // list current logged-on users
+who -a // list all information
+whoami // to identify the current user
+
+sudo useradd turkey
+id // list current user information
+
+// adding and removing group
+sudo /usr/sbin/groupadd newGroup
+sudo /usr/sbin/groupdel groupName
+
+groups user // check user group
+sudo /usr/sbin/usermod -G groupName user // add user to group
+
+//view current set environment variables
+set
+env
+export
+
+//setting environment variables
+echo $SHELL // show the value of a specific varible
+export VARIABLE=value (or VARIABLE = value; export VARIABLE) // export a new variable value
+//add a variable permanently
+1. edit ~/.bashrc and add the line export Variable=value
+2. type source ~/.bashrc or bash
+
+//PATH variable
+export PATH=$HOME/bin:$PATH
+
+//Keyboard shortcut
+ctrl + L //clears the screen
+ctrl + D // exits the current shell
+ctrl + Z // puts the current process into suspended background
+ctrl + C // kills the current process
+ctrl + H // works the same as backspace
+ctrl + A // goes to the beginning of the line
+ctrl + W // deletes the word before the cursor
+ctrl + U // delets from beginning of line to cursor position
+ctrl + E // goes to the end of the line
+TAB // auto-completes files, directories, and binaries
+
+
+// file permissions
+chown // Used to change user ownership of a file or directory
+chgrp // used to change group ownership
+chmod // used to change the permissions on the file which can be done separately for owner, group and the rest of the world.
+
+rwx: rwx : rwx // read, write, and execute
+u:    g:    o // user, group, and other
+
+chmod o+w, o-r test.java // add write to other; remove r from other
+ls -l <fileName> // check permission privilege; information of fileName with long version.
+
+4 read permission, 2 writer permission, 1 execution permission
+chmod 777 test.java
+
+sudo chown root test.java
+sudo chgrp dev test.java
+
+```
+
+```
+Text Editors
+
+//method1: create myfile
+cat <<EOF > myfile
+line one
+line two
+line three
+EOF
+
+//method2
+echo lineone > myfile
+echo linetwo >> myfile
+echo linethree >> myfile
+
+
+//vim
+i // insert mode
+: // line command mode
+
+vi myfile // start the vi and edit the myfile
+vi -r myfile// start the vi and edit myfile in recovery mode from a system crash.
+:r file2 // read in file2 and insert at current position
+:w //writer to file
+:w myfile // write out the file to myfile
+:w! file2 //overwrite file2
+:x  or :wq // exit vi and write out modified file
+:q // quit vi
+:q! //quit vi even though modifications have not been saved
+
+```
+
+Security principles
+```
+last // shows the last time each user logged into the system, which can be used to hlep identify potentially inactive accounts which are candidates for system removal
+
+useradd <userName>
+passwd <userName>
+
+```
+
+Networking
+```
+hostname // view system's host name
+ping // check whether a host is online
+host google.com // check google.com website information
+nslookup google.com // 
+dig google.com
+ping <hostname>
+route -n // show current routing table
+route add -net address // add static route
+route del -net address // delete static route
+traceroute <domain> // inspect the route which the data packet takes to reach the destination host which makes it quire useful for troubleshooting network delays and errors.
+
+ethtool // queries network interfaces and can also set various parameters such as the speed
+netstat // displays all active connections and routing tables. Useful for monitoring performance and troubleshooting
+nmap // scan open ports on a network. Important for security analysis
+tctdump // dumps network traffic for analysis
+iptraf // monitors network traffic in text mode
+
+curl google.com // read a cul
+curl -o saved.html google.com // save google.com to saved.html
+
+ssh <remotesystem>
+scp <localFile> <user@remotesystem>:/home/user/
+```
+
+
+##Complete commands
+```
 // Go to the sudo command
 
 sudo su
