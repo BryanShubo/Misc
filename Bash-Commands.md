@@ -1,8 +1,9 @@
 ##Bash Commands:
 
 Creating a cheating command list.
+
+####Basic Operations:
 ```
-Basic Operations:
 Relative pathname: .(present directory)   ..(parent directory)   ~(home directory)
 cd // change to home directory
 cd .. // change to upper directory
@@ -21,7 +22,7 @@ login: ssh username@remote-server.com // secure shell(SSH)
 
 ```
 
-Searching for files
+####Searching for files
 ```
 locate // get the directory of a file
 updatedb
@@ -43,7 +44,7 @@ grep
 
 ```
 
-Working with files
+####Working with files
 ```
 cat // view the file without scroll-back
 tac // look at the file backwards, starting with the last line
@@ -69,7 +70,7 @@ sudo apt-get remove <software_name>
 sudo apt-get upgrade <software_name>
 ```
 
-Comparing files and file types
+####Comparing files and file types
 ```
 diff <filename1> <filename2>
 diff -c // provides a listing of differences that include 3 lines of context before and after the lines differing in content
@@ -81,7 +82,7 @@ diff3 // comparing three files at once
 file <filename or folder> // determin type of files
 ```
 
-Backing up and compressing data
+####Backing up and compressing data
 ```
 cp // can only copy files to and from destinations on the local machine
 rsync // can also copy files from one machine to another.
@@ -114,7 +115,7 @@ disk-to-disk copying
 
 ```
 
-User Environment
+####User Environment
 ```
 who // list current logged-on users
 who -a // list all information
@@ -177,9 +178,8 @@ sudo chgrp dev test.java
 
 ```
 
+####Text Editors
 ```
-Text Editors
-
 //method1: create myfile
 cat <<EOF > myfile
 line one
@@ -209,7 +209,7 @@ vi -r myfile// start the vi and edit myfile in recovery mode from a system crash
 
 ```
 
-Security principles
+####Security principles
 ```
 last // shows the last time each user logged into the system, which can be used to hlep identify potentially inactive accounts which are candidates for system removal
 
@@ -218,7 +218,7 @@ passwd <userName>
 
 ```
 
-Networking
+####Networking
 ```
 hostname // view system's host name
 ping // check whether a host is online
