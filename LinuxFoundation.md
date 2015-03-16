@@ -82,7 +82,8 @@ file <filename or folder> // determin type of files
 
 ####Backing up and compressing data
 ```
-cp // can only copy files to and from destinations on the local machine
+cp file1 file2// can only copy files to and from destinations on the local machine
+cp -r dir1 dir2 // copy dirctory 1 to directory2
 rsync // can also copy files from one machine to another.
 rsync -r project-x archive-machine:archives/project-x
 
