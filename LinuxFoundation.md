@@ -172,6 +172,8 @@ ls -l <fileName> // check permission privilege; information of fileName with lon
 4 read permission, 2 writer permission, 1 execution permission
 chmod 777 test.java
 
+chmod -R 777 dir1/   // give all permissions to dir1 and all its subdirectories
+
 sudo chown root test.java
 sudo chgrp dev test.java
 ```
