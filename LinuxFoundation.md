@@ -38,8 +38,6 @@ find -atime
 find -mtime
 find -size +10M  // + means greater, - means less, without + or - means exact number
 find / // find everything from root directory
-grep
-
 ```
 
 ####Working with files
@@ -294,6 +292,9 @@ grep [pattern] <filename> // search for a pattern in a file and print all matchi
 grep -v [pattern] <filename> // print all lines that do not match the pattern
 grep [0-9] <filename> // print the lines that contain the numbers 0 through 9
 grep -C 3 [pattern] <filename> // print context of lines (specified number of lines above and below the patter) for matching the pattern. Here the number of lines is specified as 3.
+
+grep -R 'string' dir/ // search string in a directory
+find dir/ -type f -exec grep -H 'string' {} + // use find to search a string in a directory
 
 // tee takes the output from any command, and while sending it to standard output, it also saves it to a file.
 ls -l | tee newFile // list the contents of a directory on the screen and save the output to a file
