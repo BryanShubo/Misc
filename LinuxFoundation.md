@@ -50,6 +50,7 @@ head // print first 10 lines by default
 
 
 mkdir // create a directory
+mkdir -p dir1/dir2 // create subdirectory
 touch // used to set or update the access, change, and modify times of files.
 touch <filename> // create an empty file
 
