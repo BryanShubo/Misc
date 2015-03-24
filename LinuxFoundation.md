@@ -118,6 +118,7 @@ disk-to-disk copying
 who // list current logged-on users
 who -a // list all information
 whoami // to identify the current user
+su - <username> // switch to another user
 
 sudo useradd turkey
 id // list current user information
