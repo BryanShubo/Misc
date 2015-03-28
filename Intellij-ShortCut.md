@@ -28,7 +28,7 @@ Ctrl+Shift+J to join lines (pull content of next line up to current line).
 Alt + Enter : show intention actions (like Eclipse quick fix)
 
 Ctrl + Alt + V : introduce variable (never type the left hand side of an assignment again)
-Ctrl + Shift + Space : smart completion ( even two levels down since IntelliJ 8 )
+Ctrl + Shift + Space : smart completion
 Ctrl + W : select succesively increasing code blocks. Kind of obvious but a real time saver!
 
 To create a documentation comment for a method or function: Place the caret before the declaration. Type the opening block comment /**, and press Enter. Add meaningful description of parameters and return values.
