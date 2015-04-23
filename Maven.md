@@ -1,4 +1,4 @@
-This file is used to store maven dependency info
+mvn clean install -Dmaven.test.skip=true
 
 
 <?xml version="1.0" encoding="UTF-8"?>
