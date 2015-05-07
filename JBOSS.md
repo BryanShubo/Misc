@@ -53,7 +53,7 @@ using the following command: EAP_HOME/bin/standalone.sh -c standalone-full-ha.xm
 
 ##### standalone.xml
 ```
-Extensions
+1) Extensions
 An extension is a module that extends the core capabilities of the server. The JBoss Application 
 Server 7 core is very simple and lightweight; most of the capabilities people associate with 
 an application server are provided via extensions. An extension is packaged as a module in the 
@@ -68,7 +68,7 @@ including an <extension/> element naming its module in the domain.xml or standal
     <extension module="org.jboss.as.weld" />
 </extensions>
 
-Profiles and Subsystems
+2) Profiles and Subsystems
 The most significant part of the configuration in domain.xml and standalone.xml is the 
 configuration of one (in standalone.xml) or more (in domain.xml) "profiles". A profile is 
 a named set of subsystem configurations. A subsystem is an added set of capabilities added 
@@ -87,7 +87,7 @@ The contents of individual subsystem configurations look exactly the same betwee
 and standalone.xml.
 
 
-Paths
+3) Paths
 A logical name for a filesystem path. The domain.xml, host.xml and standalone.xml 
 configurations all include a section where paths can be declared. Other sections of the 
 configuration can then reference those paths by their logical name, rather than having to 
@@ -133,7 +133,7 @@ a path element in each machine's host.xml that specifies what the actual filesys
 A <path/> element in a standalone.xml must include the specification of the actual filesystem path.
 
 
-Interfaces
+4) Interfaces
 A logical name for a network interface/IP address/host name to which sockets can be bound. 
 The domain.xml, host.xml and standalone.xml configurations all include a section where interfaces 
 can be declared. Other sections of the configuration can then reference those interfaces by 
@@ -158,7 +158,7 @@ interface element in each machine's host.xml that specifies the criteria for det
 An <interface/> element in a standalone.xml must include the criteria for determining the IP address.
 
 
-Socket Bindings and Socket Binding Groups
+5) Socket Bindings and Socket Binding Groups
 A socket binding is a named configuration for a socket.
 
 The domain.xml and standalone.xml configurations both include a section where named socket 
@@ -167,7 +167,7 @@ sockets by their logical name, rather than having to include the full details of
 configuration (which may vary on different machines). See Interfaces and ports for full details.
 
 
-System Properties
+6) System Properties
 System property values can be set in a number of places in domain.xml, host.xml and standalone.xml. 
 The values in standalone.xml are set as part of the server boot process. Values in domain.xml and 
 host.xml are applied to servers when they are launched.
