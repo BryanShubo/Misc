@@ -31,7 +31,9 @@ Ctrl + Alt + V : introduce variable (never type the left hand side of an assignm
 Ctrl + Shift + Space : smart completion
 Ctrl + W : select succesively increasing code blocks. Kind of obvious but a real time saver!
 
-To create a documentation comment for a method or function: Place the caret before the declaration. Type the opening block comment /**, and press Enter. Add meaningful description of parameters and return values.
+To create a documentation comment for a method or function: Place the caret before the declaration. 
+Type the opening block comment /**, and press Enter. Add meaningful description of parameters and 
+return values.
 
 Ctrl+F	Find
 Alt + Shift
@@ -52,11 +54,17 @@ ALT+SHIFT+F10 => Enter arguments for main method
 I run JUnit tests using Ctrl + Shift + F10.
 1. Create jUnit Test: Ctrl + Shift + T or Naviage->Test
 
-Use Code completion in Find and Replace panes. Start typing the search string, press Ctrl+Space, and select the appropriate word from the suggestion list.
-Use the recent history of searches: with the search pane already open, click find1 to show the list of recent entries.
-With the search or replace pane already opened, use Ctrl+R or Ctrl+F to toggle between panes. So doing, the search and replace strings are preserved.
+Use Code completion in Find and Replace panes. Start typing the search string, press Ctrl+Space, and 
+select the appropriate word from the suggestion list.
+Use the recent history of searches: with the search pane already open, click find1 to show the list 
+of recent entries.
+With the search or replace pane already opened, use Ctrl+R or Ctrl+F to toggle between panes. So 
+doing, the search and replace strings are preserved.
 To cancel operation and close the pane, press Escape.
-Use multiple selection. For example, if a certain string has been highlighted as a search result, it is possible to add an occurrence of this string to the multiple selection by clicking add_selection_icon (Alt+J) , delete an occurrence from the multiple selection using remove_selection_icon (Shift+Alt+J), or add all the found occurrences to the multiple selection using select_all_occurrences_icon (Ctrl+Shift+Alt+J).
+Use multiple selection. For example, if a certain string has been highlighted as a search result, 
+it is possible to add an occurrence of this string to the multiple selection by clicking add_selection_icon 
+(Alt+J) , delete an occurrence from the multiple selection using remove_selection_icon (Shift+Alt+J), or 
+add all the found occurrences to the multiple selection using select_all_occurrences_icon (Ctrl+Shift+Alt+J).
 
 
 4. Compile and Run
