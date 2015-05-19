@@ -362,24 +362,32 @@ Note: While environment variables themselves are case-insensitive on Windows, lo
 properties is case-sensitive. In other words, while the Windows shell returns the same value for 
 %PATH% and %Path%, Maven distinguishes between ${env.PATH} and ${env.Path}. As of Maven 2.1.0, 
 the names of environment variables are normalized to all upper-case for the sake of reliability.
+
 2) project.x: A dot (.) notated path in the POM will contain the corresponding element's value. 
 For example: <project><version>1.0</version></project> is accessible via ${project.version}.
+
 3) settings.x: A dot (.) notated path in the settings.xml will contain the corresponding element's 
 value. For example: <settings><offline>false</offline></settings> is accessible via ${settings.offline}.
+
 4) Java System Properties: All properties accessible via java.lang.System.getProperties() are available 
 as POM properties, such as ${java.home}.
+
 5) x: Set within a <properties /> element in the POM. The value of <properties><someVar>value
 </someVar></properies> may be used as ${someVar}.
 ```
 
 ####2. Build Settings
-Beyond the basics of the POM given above, there are two more elements that must be understood before claiming basic competency of the POM. They are the build element, that handles things like declaring your project's directory structure and managing plugins; and the reporting element, that largely mirrors the build element for reporting purposes.
+Build element, that handles things like declaring your project's directory structure and managing plugins; 
+Reporting element, that largely mirrors the build element for reporting purposes.
 
-Build
-According to the POM 4.0.0 XSD, the build element is conceptually divided into two parts: there is a BaseBuild type which contains the set of elements common to both build elements (the top-level build element under project and the build element under profiles, covered below); and there is the Build type, which contains the BaseBuild set as well as more elements for the top level definition. Let us begin with an analysis of the common elements between the two.
+######2.1 Build
+The build element is conceptually divided into two parts: 
+1) BaseBuild type, which contains the set of elements common to both build elements (the top-level build element under project and the build element under profiles, covered below); 
+
+2) Build type, which contains the BaseBuild set as well as more elements for the top level definition. 
 
 Note: These different build elements may be denoted "project build" and "profile build".
-
+```
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -395,6 +403,7 @@ Note: These different build elements may be denoted "project build" and "profile
     </profile>
   </profiles>
 </project>
+```
 The BaseBuild Element Set
 
 BaseBuild is exactly as it sounds: the base set of elements between the two build elements in the POM.
@@ -1160,5 +1169,4 @@ The BaseBuild Element Set (revisited)
 
 As mentioned above, the reason for the two types of build elements reside in the fact that it does not make sense for a profile to configure build directories or extensions as it does in the top level of the POM. Reguardless of in which environment the project is built, some values will remain constant, such as the directory structure of the source code. If you find your project needing to keep two sets of code for different environments, it may be prudent to investigate refactoring the project into two or more separate projects.
 
-Final
-The Maven POM is big. However, its size is also a testament to its versatility. The ability to abstract all of the aspects of a project into a single artifact is powerful, to say the least. Gone are the days of dozens of disparate build scripts and scattered documentation concerning each individual project. Along with Maven's other stars that make up the Maven galaxy - a well defined build lifecycle, easy to write and maintain plugins, centralized repositories, system-wide and user-based configurations, as well as the increasing number of tools to make developers' jobs easier to maintain complex projects - the POM is the large, but bright, center.
+
