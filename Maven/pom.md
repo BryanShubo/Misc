@@ -50,8 +50,8 @@
 
 ####Introduction
 The POM 4.0.0 XSD and descriptor reference documentation
-What is the POM?
-POM stands for "Project Object Model". It is an XML representation of a Maven project held in a file named pom.xml. When in the presence of Maven folks, speaking of a project is speaking in the philosophical sense, beyond a mere collection of files containing code. A project contains configuration files, as well as the developers involved and the roles they play, the defect tracking system, the organization and licenses, the URL of where the project lives, the project's dependencies, and all of the other little pieces that come into play to give code life. It is a one-stop-shop for all things concerning the project. In fact, in the Maven world, a project need not contain any code at all, merely a pom.xml.
+#####What is the POM?
+POM stands for "Project Object Model". A project contains configuration files, as well as the developers involved and the roles they play, the defect tracking system, the organization and licenses, the URL of where the project lives, the project's dependencies, and all of the other little pieces that come into play to give code life. It is a one-stop-shop for all things concerning the project. In fact, in the Maven world, a project need not contain any code at all, merely a pom.xml.
 
 Quick Overview
 This is a listing of the elements directly under the POM's project element. Notice that modelVersion contains 4.0.0. That is currently the only supported POM version for both Maven 2 & 3, and is always required.
