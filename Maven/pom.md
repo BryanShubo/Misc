@@ -317,6 +317,17 @@ Besides inheriting certain top-level elements, parents have elements to configur
 ```
 dependencyManagement: is used by POMs to help manage dependency information across all of its children. If the my-parent project uses dependencyManagement to define a dependency on junit:junit:4.0, then POMs inheriting from this one can set their dependency giving the groupId=junit and artifactId=junit only, then Maven will fill in the version set by the parent. The benefits of this method are obvious. Dependency details can be set in one central location, which will propagate to all inheriting POMs. In addition, the version and scope of artifacts which are incorporated from transitive dependencies may also be controlled by specifying them in a dependency management section.
 ```
+传递性依赖原则：
+
+A-->B
+A-->C
+
+1.路径最近者优先
+2.路径相同，第一声明者优先 in makeFriend’s pom.xml
+
+注意：
+1.dependencyManagement中定义的依赖子module不会共享
+2.dependencies中定义的依赖子module可以共享
 
 #####1.7 Aggregation (or Multi-Module)
 
