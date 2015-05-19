@@ -192,9 +192,7 @@ It is also sometimes useful to clip a dependency's transitive dependencies. A de
 exclusions: Exclusions contain one or more exclusion elements, each containing a groupId and artifactId denoting a dependency to exclude. Unlike optional, which may or may not be installed and used, exclusions actively remove themselves from the dependency tree.
 
 #####Inheritance
-
-One powerful addition that Maven brings to build management is the concept of project inheritance. Although in build systems such as Ant, inheritance can certainly be simulated, Maven has gone the extra step in making project inheritance explicit to the project object model.
-
+```
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -206,14 +204,16 @@ One powerful addition that Maven brings to build management is the concept of pr
   <version>2.0</version>
   <packaging>pom</packaging>
 </project>
+```
 The packaging type required to be pom for parent and aggregation (multi-module) projects. These types define the goals bound to a set of lifecycle stages. For example, if packaging is jar, then the package phase will execute the jar:jar goal. If the packaging is pom, the goal executed will be site:attach-descriptor. Now we may add values to the parent POM, which will be inherited by its children. The elements in the parent POM that are inherited by its children are:
 
-dependencies
-developers and contributors
-plugin lists
-reports lists
-plugin executions with matching ids
-plugin configuration
+* dependencies
+* developers and contributors
+* plugin lists
+* reports lists
+* plugin executions with matching ids
+* plugin configuration
+```
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -229,6 +229,7 @@ plugin configuration
  
   <artifactId>my-project</artifactId>
 </project>
+```
 Notice the relativePath element. It is not required, but may be used as a signifier to Maven to first search the path given for this project's parent, before searching the local and then remote repositories.
 
 To see inheritance in action, just have a look at the ASF or Maven parent POM's.
