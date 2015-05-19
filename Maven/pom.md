@@ -51,11 +51,10 @@
 ####Introduction
 The POM 4.0.0 XSD and descriptor reference documentation
 #####What is the POM?
-POM stands for "Project Object Model". A project contains configuration files, as well as the developers involved and the roles they play, the defect tracking system, the organization and licenses, the URL of where the project lives, the project's dependencies, and all of the other little pieces that come into play to give code life. It is a one-stop-shop for all things concerning the project. In fact, in the Maven world, a project need not contain any code at all, merely a pom.xml.
+POM stands for "Project Object Model". A project contains configuration files, as well as the developers involved and the roles they play, the defect tracking system, the organization and licenses, the URL of where the project lives, the project's dependencies, and all of the other little pieces that come into play to give code life. It is a one-stop-shop for all things concerning the project. 
 
-Quick Overview
-This is a listing of the elements directly under the POM's project element. Notice that modelVersion contains 4.0.0. That is currently the only supported POM version for both Maven 2 & 3, and is always required.
-
+#####Quick Overview
+```
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -98,6 +97,7 @@ This is a listing of the elements directly under the POM's project element. Noti
   <distributionManagement>...</distributionManagement>
   <profiles>...</profiles>
 </project>
+```
 The Basics
 The POM contains all necessary information about a project, as well as configurations of plugins to be used during the build process. It is, effectively, the declarative manifestation of the "who", "what", and "where", while the build lifecycle is the "when" and "how". That is not to say that the POM cannot affect the flow of the lifecycle - it can. For example, by configuring the maven-antrun-plugin, one can effectively embed ant tasks inside of the POM. It is ultimately a declaration, however. Where as a build.xml tells ant precisely what to do when it is run (procedural), a POM states its configuration (declarative). If some external force causes the lifecycle to skip the ant plugin execution, it will not stop the plugins that are executed from doing their magic. This is unlike a build.xml file, where tasks are almost always dependant on the lines executed before it.
 
