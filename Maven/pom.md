@@ -2,7 +2,6 @@
 1. Introduction
   1. What is the POM?
   2. Quick Overview
-
 2. The Basics
   1. Maven Coordinates
   2. POM Relationships
@@ -15,7 +14,6 @@
     3. Aggregation (or Multi-Module)
       1. Inheritance v. Aggregation
   3. Properties
-  
 3. Build Settings
   1. Build
     1. The BaseBuild Element Set
@@ -33,7 +31,6 @@
   2. Organization
   3. Developers
   4. Contributors
-
 5. Environment Settings
   1. Issue Management
   2. Continuous Integration Management
@@ -49,9 +46,9 @@
   9. Profiles
     1. Activation
     2. The BaseBuild Element Set (revisited)
-
 6. Final
-Introduction
+
+####Introduction
 The POM 4.0.0 XSD and descriptor reference documentation
 What is the POM?
 POM stands for "Project Object Model". It is an XML representation of a Maven project held in a file named pom.xml. When in the presence of Maven folks, speaking of a project is speaking in the philosophical sense, beyond a mere collection of files containing code. A project contains configuration files, as well as the developers involved and the roles they play, the defect tracking system, the organization and licenses, the URL of where the project lives, the project's dependencies, and all of the other little pieces that come into play to give code life. It is a one-stop-shop for all things concerning the project. In fact, in the Maven world, a project need not contain any code at all, merely a pom.xml.
