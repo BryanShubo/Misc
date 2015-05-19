@@ -1,7 +1,8 @@
-POM Reference
-Introduction
-What is the POM?
-Quick Overview
+###POM Reference
+####Introduction
+######What is the POM?
+#####Quick Overview
+
 The Basics
 Maven Coordinates
 POM Relationships
