@@ -16,38 +16,41 @@
       1. Inheritance v. Aggregation
   3. Properties
   
-Build Settings
-Build
-The BaseBuild Element Set
-Resources
-Plugins
-Plugin Management
-The Build Element Set
-Directories
-Extensions
-Reporting
-Report Sets
-More Project Information
-Licenses
-Organization
-Developers
-Contributors
-Environment Settings
-Issue Management
-Continuous Integration Management
-Mailing Lists
-SCM
-Prerequisites
-Repositories
-Plugin Repositories
-Distribution Management
-Repository
-Site Distribution
-Relocation
-Profiles
-Activation
-The BaseBuild Element Set (revisited)
-Final
+3. Build Settings
+  1. Build
+    1. The BaseBuild Element Set
+      1. Resources
+      2. Plugins
+      3. Plugin Management
+    2. The Build Element Set
+      1. Directories
+      2. Extensions
+  2. Reporting
+    1. Report Sets
+
+4. More Project Information
+  1. Licenses
+  2. Organization
+  3. Developers
+  4. Contributors
+
+5. Environment Settings
+  1. Issue Management
+  2. Continuous Integration Management
+  3. Mailing Lists
+  4. SCM
+  5. Prerequisites
+  6. Repositories
+  7. Plugin Repositories
+  8. Distribution Management
+    1. Repository
+    2. Site Distribution
+    3. Relocation
+  9. Profiles
+    1. Activation
+    2. The BaseBuild Element Set (revisited)
+
+6. Final
 Introduction
 The POM 4.0.0 XSD and descriptor reference documentation
 What is the POM?
