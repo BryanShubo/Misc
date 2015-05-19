@@ -3,18 +3,19 @@
   1. What is the POM?
   2. Quick Overview
 
-The Basics
-Maven Coordinates
-POM Relationships
-Dependencies
-Dependency Version Requirement Specification
-Exclusions
-Inheritance
-The Super POM
-Dependency Management
-Aggregation (or Multi-Module)
-Inheritance v. Aggregation
-Properties
+2. The Basics
+  1. Maven Coordinates
+  2. POM Relationships
+    1. Dependencies
+      1. Dependency Version Requirement Specification
+      2. Exclusions
+    2. Inheritance
+      1. The Super POM
+      2. Dependency Management
+    3. Aggregation (or Multi-Module)
+      1. Inheritance v. Aggregation
+  3. Properties
+  
 Build Settings
 Build
 The BaseBuild Element Set
