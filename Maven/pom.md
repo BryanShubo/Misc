@@ -313,9 +313,11 @@ The packaging type required to be pom for parent and aggregation (multi-module) 
 ```
 #####1.6 Dependency Management
 
-Besides inheriting certain top-level elements, parents have elements to configure values for child POMs and transitive dependencies. One of those elements is dependencyManagement.
+Besides inheriting certain top-level elements, parents have elements to configure values for 
+child POMs and transitive dependencies. One of those elements is dependencyManagement.
 ```
 dependencyManagement: is used by POMs to help manage dependency information across all of its children. If the my-parent project uses dependencyManagement to define a dependency on junit:junit:4.0, then POMs inheriting from this one can set their dependency giving the groupId=junit and artifactId=junit only, then Maven will fill in the version set by the parent. The benefits of this method are obvious. Dependency details can be set in one central location, which will propagate to all inheriting POMs. In addition, the version and scope of artifacts which are incorporated from transitive dependencies may also be controlled by specifying them in a dependency management section.
+```
 ```
 传递性依赖原则：
 
@@ -328,10 +330,13 @@ A-->C
 注意：
 1.dependencyManagement中定义的依赖子module不会共享
 2.dependencies中定义的依赖子module可以共享
+```
 
 #####1.7 Aggregation (or Multi-Module)
 
-A project with modules is known as a multimodule, or aggregator project. Modules are projects that this POM lists, and are executed as a group. An pom packaged project may aggregate the build of a set of projects by listing them as modules, which are relative directories to those projects.
+A project with modules is known as a multimodule, or aggregator project. Modules are projects that 
+this POM lists, and are executed as a group. An pom packaged project may aggregate the build of a 
+set of projects by listing them as modules, which are relative directories to those projects.
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -393,7 +398,8 @@ Reporting element, that largely mirrors the build element for reporting purposes
 
 ######2.1 Build
 The build element is conceptually divided into two parts: 
-1) BaseBuild type, which contains the set of elements common to both build elements (the top-level build element under project and the build element under profiles, covered below); 
+1) BaseBuild type, which contains the set of elements common to both build elements (the top-level build 
+element under project and the build element under profiles, covered below); 
 
 2) Build type, which contains the BaseBuild set as well as more elements for the top level definition. 
 
@@ -415,10 +421,10 @@ Note: These different build elements may be denoted "project build" and "profile
   </profiles>
 </project>
 ```
-The BaseBuild Element Set
+######2.2 The BaseBuild Element Set
 
 BaseBuild is exactly as it sounds: the base set of elements between the two build elements in the POM.
-
+```
 <build>
   <defaultGoal>install</defaultGoal>
   <directory>${basedir}/target</directory>
@@ -428,25 +434,33 @@ BaseBuild is exactly as it sounds: the base set of elements between the two buil
   </filters>
   ...
 </build>
-defaultGoal: the default goal or phase to execute if none is given. If a goal is given, it should be defined as it is in the command line (such as jar:jar). The same goes for if a phase is defined (such as install).
-directory: This is the directory where the build will dump its files or, in Maven parlance, the build's target. It aptly defaults to ${basedir}/target.
-finalName: This is the name of the bundled project when it is finally built (sans the file extension, for example: my-project-1.0.jar). It defaults to ${artifactId}-${version}. The term "finalName" is kind of a misnomer, however, as plugins that build the bundled project have every right to ignore/modify this name (but they usually do not). For example, if the maven-jar-plugin is configured to give a jar a classifier of test, then the actual jar defined above will be built as my-project-1.0-test.jar.
-filter: Defines *.properties files that contain a list of properties that apply to resources which accept their settings (covered below). In other words, the "name=value" pairs defined within the filter files replace ${name} strings within resources on build. The example above defines the filter1.properties file under the filter/ directory. Maven's default filter directory is ${basedir}/src/main/filters/.
-For a more comprehensive look at what filters are and what they can do, take a look at the quick start guide.
+```
 
-Resources
+filter: Defines *.properties files that contain a list of properties that apply to resources which 
+accept their settings (covered below). In other words, the "name=value" pairs defined within the 
+filter files replace ${name} strings within resources on build. The example above defines the 
+filter1.properties file under the filter/ directory. Maven's default filter directory is 
+${basedir}/src/main/filters/.
 
-Another feature of build elements is specifying where resources exist within your project. Resources are not (usually) code. They are not compiled, but are items meant to be bundled within your project or used for various other reasons, such as code generation.
 
-For example, a Plexus project requires a configuration.xml file (which specifies component configurations to the container) to live within the META-INF/plexus directory. Although we could just as easily place this file within src/main/resource/META-INF/plexus, we want instead to give Plexus its own directory of src/main/plexus. In order for the JAR plugin to bundle the resource correctly, you would specify resources similar to the following:
+######2.3 Resources
+Another feature of build elements is specifying where resources exist within your project. 
+Resources are not (usually) code. They are not compiled, but are items meant to be bundled 
+within your project or used for various other reasons, such as code generation.
 
+For example, a Plexus project requires a configuration.xml file (which specifies component 
+configurations to the container) to live within the META-INF/plexus directory. Although we 
+could just as easily place this file within src/main/resource/META-INF/plexus, we want instead 
+to give Plexus its own directory of src/main/plexus. In order for the JAR plugin to bundle the
+resource correctly, you would specify resources similar to the following:
+```
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <build>
     ...
-    <resources>
+    <resources> <!--resource elements -->
       <resource>
         <targetPath>META-INF/plexus</targetPath>
         <filtering>false</filtering>
@@ -465,15 +479,35 @@ For example, a Plexus project requires a configuration.xml file (which specifies
     ...
   </build>
 </project>
-resources: is a list of resource elements that each describe what and where to include files associated with this project.
-targetPath: Specifies the directory structure to place the set of resources from a build. Target path defaults to the base directory. A commonly specified target path for resources that will be packaged in a JAR is META-INF.
-filtering: is true or false, denoting if filtering is to be enabled for this resource. Note, that filter *.properties files do not have to be defined for filtering to occur - resources can also use properties that are by default defined in the POM (such as ${project.version}), passed into the command line using the "-D" flag (for example, "-Dname=value") or are explicitly defined by the properties element. Filter files were covered above.
-directory: This element's value defines where the resources are to be found. The default directory for a build is ${basedir}/src/main/resources.
-includes: A set of files patterns which specify the files to include as resources under that specified directory, using * as a wildcard.
-excludes: The same structure as includes, but specifies which files to ignore. In conflicts between include and exclude, exclude wins.
-testResources: The testResources element block contains testResource elements. Their definitions are similar to resource elements, but are naturally used during test phases. The one difference is that the default (Super POM defined) test resource directory for a project is ${basedir}/src/test/resources. Test resources are not deployed.
-Plugins
+```
+```
+targetPath: Specifies the directory structure to place the set of resources from a build. Target path 
+defaults to the base directory. A commonly specified target path for resources that will be packaged 
+in a JAR is META-INF.
 
+filtering: is true or false, denoting if filtering is to be enabled for this resource. Note, that filter 
+*.properties files do not have to be defined for filtering to occur - resources can also use properties 
+that are by default defined in the POM (such as ${project.version}), passed into the command line using 
+the "-D" flag (for example, "-Dname=value") or are explicitly defined by the properties element. Filter 
+files were covered above.
+
+directory: This element's value defines where the resources are to be found. The default directory for 
+a build is ${basedir}/src/main/resources.
+
+includes: A set of files patterns which specify the files to include as resources under that specified 
+directory, using * as a wildcard.
+
+excludes: The same structure as includes, but specifies which files to ignore. In conflicts between 
+include and exclude, exclude wins.
+
+testResources: The testResources element block contains testResource elements. Their definitions 
+are similar to resource elements, but are naturally used during test phases. The one difference 
+is that the default (Super POM defined) test resource directory for a project is ${basedir}/src/test/
+resources. Test resources are not deployed.
+```
+
+######2.4 Plugins
+```
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -496,6 +530,7 @@ Plugins
     </plugins>
   </build>
 </project>
+```
 Beyond the standard coordinate of groupId:artifactId:version, there are elements which configure the plugin or this builds interaction with it.
 
 extensions: true or false, whether or not to load extensions of this plugin. It is by default false. Extensions are covered later in this document.
