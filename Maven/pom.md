@@ -1,59 +1,11 @@
 ###POM Reference
-1. Introduction
-  1. What is the POM?
-  2. Quick Overview
-2. The Basics
-  1. Maven Coordinates
-  2. POM Relationships
-    1. Dependencies
-      1. Dependency Version Requirement Specification
-      2. Exclusions
-    2. Inheritance
-      1. The Super POM
-      2. Dependency Management
-    3. Aggregation (or Multi-Module)
-      1. Inheritance v. Aggregation
-  3. Properties
-3. Build Settings
-  1. Build
-    1. The BaseBuild Element Set
-      1. Resources
-      2. Plugins
-      3. Plugin Management
-    2. The Build Element Set
-      1. Directories
-      2. Extensions
-  2. Reporting
-    1. Report Sets
 
-4. More Project Information
-  1. Licenses
-  2. Organization
-  3. Developers
-  4. Contributors
-5. Environment Settings
-  1. Issue Management
-  2. Continuous Integration Management
-  3. Mailing Lists
-  4. SCM
-  5. Prerequisites
-  6. Repositories
-  7. Plugin Repositories
-  8. Distribution Management
-    1. Repository
-    2. Site Distribution
-    3. Relocation
-  9. Profiles
-    1. Activation
-    2. The BaseBuild Element Set (revisited)
-6. Final
-
-####Introduction
+####1. The Basics
 The POM 4.0.0 XSD and descriptor reference documentation
-#####What is the POM?
+#####1.1 What is the POM?
 POM stands for "Project Object Model". A project contains configuration files, as well as the developers involved and the roles they play, the defect tracking system, the organization and licenses, the URL of where the project lives, the project's dependencies, and all of the other little pieces that come into play to give code life. It is a one-stop-shop for all things concerning the project. 
 
-#####Quick Overview
+#####1.2 Quick Overview
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -99,10 +51,10 @@ POM stands for "Project Object Model". A project contains configuration files, a
 </project>
 ```
 
-#####POM Relationships
+#####1.3 POM Relationships
 "Jarmageddon" quickly ensues as the dependency tree becomes large and complicated. "Jar Hell" follows, where versions of dependencies on one system are not equivalent to versions as those developed with, either by the wrong version given, or conflicting versions between similarly named jars. Maven solves both problems through a common local repository from which to link projects correctly, versions and all.
 
-######Dependencies
+######1.3.1 Dependencies
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -139,7 +91,7 @@ optional:
 Marks optional a dependency when this project itself is a dependency. Confused? For example, imagine a project A that depends upon project B to compile a portion of code that may not be used at runtime, then we may have no need for project B for all project. So if project X adds project A as its own dependency, then Maven will not need to install project B at all. Symbolically, if => represents a required dependency, and --> represents optional, although A=>B may be the case when building A X=>A-->B would be the case when building X.
 In the shortest terms, optional lets other projects know that, when you use this project, you do not require this dependency in order to work correctly.
 ```
-#####Exclusions
+######1.3.2 Exclusions
 
 Exclusions explicitly tell Maven that you don't want to include the specified project that is a dependency of this dependency (in other words, its transitive dependency). For example, the maven-embedder requires maven-core, and we do not wish to use it or its dependencies, then we would add it as an exclusion.
 ```
@@ -191,7 +143,7 @@ It is also sometimes useful to clip a dependency's transitive dependencies. A de
 ```
 exclusions: Exclusions contain one or more exclusion elements, each containing a groupId and artifactId denoting a dependency to exclude. Unlike optional, which may or may not be installed and used, exclusions actively remove themselves from the dependency tree.
 
-#####Inheritance
+#####1.4 Inheritance
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
