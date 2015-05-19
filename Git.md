@@ -112,7 +112,9 @@ git branch [branch_name] //create a new branch
 git branch -d [branch_name] //delete a branch (locally !!!)
                             //The branch must be fully merged in its upstream branch, or in HEAD if no upstream 
                             //was set with -track or --set-upstream
-git branch -D [branch_name] // delete a branch irrespective of ites merged status                           
+git branch -D [branch_name] // delete a branch irrespective of ites merged status   
+git push origin --delete branch_name // delete a remote branch in GitHub
+git push origin : branch_name // delete a remote branch in GitHub
 git branch -r //view available local remote branches
 git branch -vv //view the tracking branch
 git branch -a //List both remote-tracking branches and local branches
