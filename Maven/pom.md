@@ -176,20 +176,14 @@ The packaging type required to be pom for parent and aggregation (multi-module) 
     <groupId>org.codehaus.mojo</groupId>
     <artifactId>my-parent</artifactId>
     <version>2.0</version>
-    <relativePath>../my-parent</relativePath>
+    <relativePath>../my-parent</relativePath> // optional
   </parent>
  
   <artifactId>my-project</artifactId>
 </project>
 ```
-Notice the relativePath element. It is not required, but may be used as a signifier to Maven to first search the path given for this project's parent, before searching the local and then remote repositories.
-
-To see inheritance in action, just have a look at the ASF or Maven parent POM's.
-
-The Super POM
-
-Similar to the inheritance of objects in object oriented programming, POMs that extend a parent POM inherit certain values from that parent. Moreover, just as Java objects ultimately inherit from java.lang.Object, all Project Object Models inherit from a base Super POM. The snippet below is the Super POM for Maven 3.0.4.
-
+#####1.5 The Super POM
+```
 <project>
   <modelVersion>4.0.0</modelVersion>
  
@@ -315,19 +309,19 @@ Similar to the inheritance of objects in object oriented programming, POMs that 
       </build>
     </profile>
   </profiles>
- 
 </project>
-You can take a look at how the Super POM affects your Project Object Model by creating a minimal pom.xml and executing on the command line: mvn help:effective-pom
-
-Dependency Management
+```
+#####1.6 Dependency Management
 
 Besides inheriting certain top-level elements, parents have elements to configure values for child POMs and transitive dependencies. One of those elements is dependencyManagement.
-
+```
 dependencyManagement: is used by POMs to help manage dependency information across all of its children. If the my-parent project uses dependencyManagement to define a dependency on junit:junit:4.0, then POMs inheriting from this one can set their dependency giving the groupId=junit and artifactId=junit only, then Maven will fill in the version set by the parent. The benefits of this method are obvious. Dependency details can be set in one central location, which will propagate to all inheriting POMs. In addition, the version and scope of artifacts which are incorporated from transitive dependencies may also be controlled by specifying them in a dependency management section.
-Aggregation (or Multi-Module)
+```
+
+#####1.7 Aggregation (or Multi-Module)
 
 A project with modules is known as a multimodule, or aggregator project. Modules are projects that this POM lists, and are executed as a group. An pom packaged project may aggregate the build of a set of projects by listing them as modules, which are relative directories to those projects.
-
+```
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -344,27 +338,41 @@ A project with modules is known as a multimodule, or aggregator project. Modules
     <module>another-project</module>
   </modules>
 </project>
-You do not need to consider the inter-module dependencies yourself when listing the modules, i.e. the ordering of the modules given by the POM is not important. Maven will topologically sort the modules such that dependencies are always build before dependent modules.
-
-To see aggregation in action, just have a look at the Maven or Maven Core Plugins base POM's.
-
+```
 A final note on Inheritance v. Aggregation
+```
+Inheritance and aggregation create a nice dynamic to control builds through a single, high-level POM. 
+You will often see projects that are both parents and aggregators. For example, the entire maven core runs 
+through a single base POM org.apache.maven:maven, so building the Maven project can be executed by a 
+single command: mvn compile. However, although both POM projects, an aggregator project and a parent 
+project are not one in the same and should not be confused. A POM project may be inherited from - 
+but does not necessarily have - any modules that it aggregates. Conversely, a POM project may aggregate 
+projects that do not inherit from it.
+```
 
-Inheritance and aggregation create a nice dynamic to control builds through a single, high-level POM. You will often see projects that are both parents and aggregators. For example, the entire maven core runs through a single base POM org.apache.maven:maven, so building the Maven project can be executed by a single command: mvn compile. However, although both POM projects, an aggregator project and a parent project are not one in the same and should not be confused. A POM project may be inherited from - but does not necessarily have - any modules that it aggregates. Conversely, a POM project may aggregate projects that do not inherit from it.
-
-Properties
-Properties are the last required piece in understanding POM basics. Maven properties are value placeholder, like properties in Ant. Their values are accessible anywhere within a POM by using the notation ${X}, where X is the property.
-
+#####1.8 Properties
+Properties are the last required piece in understanding POM basics. Maven properties are value 
+placeholder, like properties in Ant. Their values are accessible anywhere within a POM by using 
+the notation ${X}, where X is the property.
+```
 They come in five different styles:
+1) env.X: Prefixing a variable with "env." will return the shell's environment variable. 
+For example, ${env.PATH} contains the PATH environment variable.
+Note: While environment variables themselves are case-insensitive on Windows, lookup of 
+properties is case-sensitive. In other words, while the Windows shell returns the same value for 
+%PATH% and %Path%, Maven distinguishes between ${env.PATH} and ${env.Path}. As of Maven 2.1.0, 
+the names of environment variables are normalized to all upper-case for the sake of reliability.
+2) project.x: A dot (.) notated path in the POM will contain the corresponding element's value. 
+For example: <project><version>1.0</version></project> is accessible via ${project.version}.
+3) settings.x: A dot (.) notated path in the settings.xml will contain the corresponding element's 
+value. For example: <settings><offline>false</offline></settings> is accessible via ${settings.offline}.
+4) Java System Properties: All properties accessible via java.lang.System.getProperties() are available 
+as POM properties, such as ${java.home}.
+5) x: Set within a <properties /> element in the POM. The value of <properties><someVar>value
+</someVar></properies> may be used as ${someVar}.
+```
 
-env.X: Prefixing a variable with "env." will return the shell's environment variable. For example, ${env.PATH} contains the PATH environment variable.
-Note: While environment variables themselves are case-insensitive on Windows, lookup of properties is case-sensitive. In other words, while the Windows shell returns the same value for %PATH% and %Path%, Maven distinguishes between ${env.PATH} and ${env.Path}. As of Maven 2.1.0, the names of environment variables are normalized to all upper-case for the sake of reliability.
-
-project.x: A dot (.) notated path in the POM will contain the corresponding element's value. For example: <project><version>1.0</version></project> is accessible via ${project.version}.
-settings.x: A dot (.) notated path in the settings.xml will contain the corresponding element's value. For example: <settings><offline>false</offline></settings> is accessible via ${settings.offline}.
-Java System Properties: All properties accessible via java.lang.System.getProperties() are available as POM properties, such as ${java.home}.
-x: Set within a <properties /> element in the POM. The value of <properties><someVar>value</someVar></properies> may be used as ${someVar}.
-Build Settings
+####2. Build Settings
 Beyond the basics of the POM given above, there are two more elements that must be understood before claiming basic competency of the POM. They are the build element, that handles things like declaring your project's directory structure and managing plugins; and the reporting element, that largely mirrors the build element for reporting purposes.
 
 Build
