@@ -62,12 +62,12 @@ POM stands for "Project Object Model". A project contains configuration files, a
   <modelVersion>4.0.0</modelVersion>
  
   <!-- The Basics -->
-  <groupId>...</groupId>
-  <artifactId>...</artifactId>
+  <groupId>...</groupId>  // package
+  <artifactId>...</artifactId>  //project name or module name
   <version>...</version>
-  <packaging>...</packaging>
-  <dependencies>...</dependencies>
-  <parent>...</parent>
+  <packaging>...</packaging> //default: war. Options: pom, jar, maven-plugin, ejb, war, ear, rar, par.
+  <dependencies>...</dependencies> // required jars
+  <parent>...</parent> // 
   <dependencyManagement>...</dependencyManagement>
   <modules>...</modules>
   <properties>...</properties>
@@ -98,48 +98,12 @@ POM stands for "Project Object Model". A project contains configuration files, a
   <profiles>...</profiles>
 </project>
 ```
-The Basics
-The POM contains all necessary information about a project, as well as configurations of plugins to be used during the build process. It is, effectively, the declarative manifestation of the "who", "what", and "where", while the build lifecycle is the "when" and "how". That is not to say that the POM cannot affect the flow of the lifecycle - it can. For example, by configuring the maven-antrun-plugin, one can effectively embed ant tasks inside of the POM. It is ultimately a declaration, however. Where as a build.xml tells ant precisely what to do when it is run (procedural), a POM states its configuration (declarative). If some external force causes the lifecycle to skip the ant plugin execution, it will not stop the plugins that are executed from doing their magic. This is unlike a build.xml file, where tasks are almost always dependant on the lines executed before it.
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
- 
-  <groupId>org.codehaus.mojo</groupId>
-  <artifactId>my-project</artifactId>
-  <version>1.0</version>
-</project>
-Maven Coordinates
-The POM defined above is the minimum that both Maven 2 & 3 will allow. groupId:artifactId:version are all required fields (although, groupId and version need not be explicitly defined if they are inherited from a parent - more on inheritance later). The three fields act much like an address and timestamp in one. This marks a specific place in a repository, acting like a coordinate system for Maven projects.
+#####POM Relationships
+"Jarmageddon" quickly ensues as the dependency tree becomes large and complicated. "Jar Hell" follows, where versions of dependencies on one system are not equivalent to versions as those developed with, either by the wrong version given, or conflicting versions between similarly named jars. Maven solves both problems through a common local repository from which to link projects correctly, versions and all.
 
-groupId: This is generally unique amongst an organization or a project. For example, all core Maven artifacts do (well, should) live under the groupId org.apache.maven. Group ID's do not necessarily use the dot notation, for example, the junit project. Note that the dot-notated groupId does not have to correspond to the package structure that the project contains. It is, however, a good practice to follow. When stored within a repository, the group acts much like the Java packaging structure does in an operating system. The dots are replaced by OS specific directory separators (such as '/' in Unix) which becomes a relative directory structure from the base repository. In the example given, the org.codehaus.mojo group lives within the directory $M2_REPO/org/codehaus/mojo.
-artifactId: The artifactId is generally the name that the project is known by. Although the groupId is important, people within the group will rarely mention the groupId in discussion (they are often all be the same ID, such as the Codehaus Mojo project groupId: org.codehaus.mojo). It, along with the groupId, create a key that separates this project from every other project in the world (at least, it should :) ). Along with the groupId, the artifactId fully defines the artifact's living quarters within the repository. In the case of the above project, my-project lives in $M2_REPO/org/codehaus/mojo/my-project.
-version: This is the last piece of the naming puzzle. groupId:artifactId denote a single project but they cannot delineate which incarnation of that project we are talking about. Do we want the junit:junit of today (version 4), or of four years ago (version 2)? In short: code changes, those changes should be versioned, and this element keeps those versions in line. It is also used within an artifact's repository to separate versions from each other. my-project version 1.0 files live in the directory structure $M2_REPO/org/codehaus/mojo/my-project/1.0.
-The three elements given above point to a specific version of a project letting Maven knows who we are dealing with, and when in its software lifecycle we want them.
-
-packaging: Now that we have our address structure of groupId:artifactId:version, there is one more standard label to give us a really complete address. That is the project's artifact type. In our case, the example POM for org.codehaus.mojo:my-project:1.0 defined above will be packaged as a jar. We could make it into a war by declaring a different packaging:
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  ...
-  <packaging>war</packaging>
-  ...
-</project>
-When no packaging is declared, Maven assumes the artifact is the default: jar. The valid types are Plexus role-hints (read more on Plexus for a explanation of roles and role-hints) of the component role org.apache.maven.lifecycle.mapping.LifecycleMapping. The current core packaging values are: pom, jar, maven-plugin, ejb, war, ear, rar, par. These define the default list of goals which execute to each corresponding build lifecycle stage for a particular package structure.
-
-You will sometimes see Maven print out a project coordinate as groupId:artifactId:packaging:version.
-
-classifier: You may occasionally find a fifth element on the coordinate, and that is the classifier. We will visit the classifier later, but for now it suffices to know that those kinds of projects are displayed as groupId:artifactId:packaging:classifier:version.
-POM Relationships
-One powerful aspect of Maven is in its handling of project relationships; that includes dependencies (and transitive dependencies), inheritance, and aggregation (multi-module projects). Dependency management has a long tradition of being a complicated mess for anything but the most trivial of projects. "Jarmageddon" quickly ensues as the dependency tree becomes large and complicated. "Jar Hell" follows, where versions of dependencies on one system are not equivalent to versions as those developed with, either by the wrong version given, or conflicting versions between similarly named jars. Maven solves both problems through a common local repository from which to link projects correctly, versions and all.
-
-Dependencies
-
-The cornerstone of the POM is its dependency list. Most every project depends upon others to build and run correctly, and if all Maven does for you is manage this list for you, you have gained a lot. Maven downloads and links the dependencies for you on compilation and other goals that require them. As an added bonus, Maven brings in the dependencies of those dependencies (transitive dependencies), allowing your list to focus solely on the dependencies your project requires.
-
+######Dependencies
+```
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -158,55 +122,27 @@ The cornerstone of the POM is its dependency list. Most every project depends up
   </dependencies>
   ...
 </project>
-groupId, artifactId, version:
-You will see these elements often. This trinity is used to compute the Maven coordinate of a specific project in time, demarcating it as a dependency of this project. The purpose of this computation is to select a version that matches all the dependency declarations (due to transitive dependencies, there can be multiple dependency declarations for the same artifact). The values should be:
-groupId, artifactId: directly the corresponding coordinates of the dependency,
-version: a dependency version requirement specification, that will be used to compute the dependency's effective version.
-Since the dependency is described by Maven coordinates, you may be thinking: "This means that my project can only depend upon Maven artifacts!" The answer is, "Of course, but that's a good thing." This forces you to depend solely on dependencies that Maven can manage. There are times, unfortunately, when a project cannot be downloaded from the central Maven repository. For example, a project may depend upon a jar that has a closed-source license which prevents it from being in a central repository. There are three methods for dealing with this scenario.
+```
+```
+type: Corresponds to the dependant artifact's packaging type. This defaults to jar. Some examples are jar, ejb-client and test-jar. New types can be defined by plugins that set extensions to true, so this is not a complete list.
 
-Install the dependency locally using the install plugin. The method is the simplest recommended method. For example:
-mvn install:install-file -Dfile=non-maven-proj.jar -DgroupId=some.group -DartifactId=non-maven-proj -Dversion=1 -Dpackaging=jar
-Notice that an address is still required, only this time you use the command line and the install plugin will create a POM for you with the given address.
+scope: There are five scopes available:
+1) compile - default scope. Compile dependencies are available in all classpaths. Furthermore, those dependencies are propagated to dependent projects.
+2) provided - this is much like compile, but indicates you expect the JDK or a container to provide it at runtime. It is only available on the compilation and test classpath, and is not transitive.
+3) runtime - this scope indicates that the dependency is not required for compilation, but is for execution. It is in the runtime and test classpaths, but not the compile classpath.
+4) test - this scope indicates that the dependency is not required for normal use of the application, and is only available for the test compilation and execution phases.
+5) system - this scope is similar to provided except that you have to provide the JAR which contains it explicitly. The artifact is always available and is not looked up in a repository.
 
-Create your own repository and deploy it there. This is a favorite method for companies with an intranet and need to be able to keep everyone in synch. There is a Maven goal called deploy:deploy-file which is similar to the install:install-file goal (read the plugin's goal page for more information).
-Set the dependency scope to system and define a systemPath. This is not recommended, however, but leads us to explaining the following elements:
-classifier:
-The classifier allows to distinguish artifacts that were built from the same POM but differ in their content. It is some optional and arbitrary string that - if present - is appended to the artifact name just after the version number.
-As a motivation for this element, consider for example a project that offers an artifact targeting JRE 1.5 but at the same time also an artifact that still supports JRE 1.4. The first artifact could be equipped with the classifier jdk15 and the second one with jdk14 such that clients can choose which one to use.
+systemPath: is used only if the the dependency scope is system. Otherwise, the build will fail if this element is set. The path must be absolute, so it is recommended to use a property to specify the machine-specific path (more on properties below), such as ${java.home}/lib. Since it is assumed that system scope dependencies are installed a priori, Maven will not check the repositories for the project, but instead checks to ensure that the file exists. If not, Maven will fail the build and suggest that you download and install it manually.
 
-Another common use case for classifiers is the need to attach secondary artifacts to the project's main artifact. If you browse the Maven central repository, you will notice that the classifiers sources and javadoc are used to deploy the project source code and API docs along with the packaged class files.
-
-type:
-Corresponds to the dependant artifact's packaging type. This defaults to jar. While it usually represents the extension on the filename of the dependency, that is not always the case. A type can be mapped to a different extension and a classifier. The type often corresponds to the packaging used, though this is also not always the case. Some examples are jar, ejb-client and test-jar. New types can be defined by plugins that set extensions to true, so this is not a complete list.
-scope:
-This element refers to the classpath of the task at hand (compiling and runtime, testing, etc.) as well as how to limit the transitivity of a dependency. There are five scopes available:
-compile - this is the default scope, used if none is specified. Compile dependencies are available in all classpaths. Furthermore, those dependencies are propagated to dependent projects.
-provided - this is much like compile, but indicates you expect the JDK or a container to provide it at runtime. It is only available on the compilation and test classpath, and is not transitive.
-runtime - this scope indicates that the dependency is not required for compilation, but is for execution. It is in the runtime and test classpaths, but not the compile classpath.
-test - this scope indicates that the dependency is not required for normal use of the application, and is only available for the test compilation and execution phases.
-system - this scope is similar to provided except that you have to provide the JAR which contains it explicitly. The artifact is always available and is not looked up in a repository.
-systemPath:
-is used only if the the dependency scope is system. Otherwise, the build will fail if this element is set. The path must be absolute, so it is recommended to use a property to specify the machine-specific path (more on properties below), such as ${java.home}/lib. Since it is assumed that system scope dependencies are installed a priori, Maven will not check the repositories for the project, but instead checks to ensure that the file exists. If not, Maven will fail the build and suggest that you download and install it manually.
 optional:
 Marks optional a dependency when this project itself is a dependency. Confused? For example, imagine a project A that depends upon project B to compile a portion of code that may not be used at runtime, then we may have no need for project B for all project. So if project X adds project A as its own dependency, then Maven will not need to install project B at all. Symbolically, if => represents a required dependency, and --> represents optional, although A=>B may be the case when building A X=>A-->B would be the case when building X.
 In the shortest terms, optional lets other projects know that, when you use this project, you do not require this dependency in order to work correctly.
-
-Dependency Version Requirement Specification
-
-Dependencies' version element define version requirements, used to compute effective dependency version. Version requirements have the following syntax:
-
-1.0: "Soft" requirement on 1.0 (just a recommendation, if it matches all other ranges for the dependency)
-[1.0]: "Hard" requirement on 1.0
-(,1.0]: x <= 1.0
-[1.2,1.3]: 1.2 <= x <= 1.3
-[1.0,2.0): 1.0 <= x < 2.0
-[1.5,): x >= 1.5
-(,1.0],[1.2,): x <= 1.0 or x >= 1.2; multiple sets are comma-separated
-(,1.1),(1.1,): this excludes 1.1 (for example if it is known not to work in combination with this library)
-Exclusions
+```
+#####Exclusions
 
 Exclusions explicitly tell Maven that you don't want to include the specified project that is a dependency of this dependency (in other words, its transitive dependency). For example, the maven-embedder requires maven-core, and we do not wish to use it or its dependencies, then we would add it as an exclusion.
-
+```
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -228,8 +164,9 @@ Exclusions explicitly tell Maven that you don't want to include the specified pr
   </dependencies>
   ...
 </project>
+```
 It is also sometimes useful to clip a dependency's transitive dependencies. A dependency may have incorrectly specified scopes, or dependencies that conflict with other dependencies in your project. Using wildcard excludes makes it easy to exclude all a dependency's transitive dependencies. In the case below you may be working with the maven-embedder and you want to manage the dependencies you use yourself, so you clip all the transitive dependencies:
-
+```
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -251,8 +188,10 @@ It is also sometimes useful to clip a dependency's transitive dependencies. A de
   </dependencies>
   ...
 </project>
+```
 exclusions: Exclusions contain one or more exclusion elements, each containing a groupId and artifactId denoting a dependency to exclude. Unlike optional, which may or may not be installed and used, exclusions actively remove themselves from the dependency tree.
-Inheritance
+
+#####Inheritance
 
 One powerful addition that Maven brings to build management is the concept of project inheritance. Although in build systems such as Ant, inheritance can certainly be simulated, Maven has gone the extra step in making project inheritance explicit to the project object model.
 
