@@ -1,7 +1,7 @@
 ###POM Reference
-####1. Introduction
-######1. What is the POM?
-######2. Quick Overview
+1. Introduction
+  1. What is the POM?
+  2. Quick Overview
 
 The Basics
 Maven Coordinates
