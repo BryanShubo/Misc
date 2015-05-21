@@ -1,3 +1,9 @@
+Create a multiple modules project
+
+1. Create a maven project: pom-root project
+2. Add a module: maven-archetype-webapp
+
+
 #####1. Using command to create a project
 ```
 mvn archetype:generate -DgroupId={project-packaging} 
