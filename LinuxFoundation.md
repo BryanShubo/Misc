@@ -412,8 +412,21 @@ file > /tmp/file.txt
 #!/bin/bash
 echo "Line Count"
 wd -l < /temp/test.txt
+
 ```
 
+pass parameter to bash file from command line
+```
+=> p1=Joe p2=Swift bash test.sh
+or => p2=Swift bash test.sh
+or p2=Swift p1=joebash test.sh
+
+//test.sh
+#!/bin/bash
+echo "start running bash file"
+echo $p1
+echo $p2
+```
 
 IF statement
 ```
