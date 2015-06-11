@@ -36,7 +36,7 @@ who:  W3C / OASIS
 service:
 ```
 
-4 XML XSD NAMESPACE
+4 XML 
 ```
 1) Configuration
 2) Data Exchange
@@ -48,4 +48,21 @@ Validation: XML schema is a blue print for XML documentation
 
 Namespace: allows usage of elements from differnet schemas in a single xml document. We use the unique 
 namespace to identify elements
+```
+
+5 XSD (XML schema definition): 
+```
+it is a contractor between provider and consumer.
+example: 
+1) web.xsd for web.xml the JEE web application descriptor
+2) project.xsd for eclipse IDE project
+
+XSD Types:
+In-Build Types
+```
+
+6 NAMESPACE
+```
+
+
 ```
