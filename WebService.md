@@ -19,7 +19,7 @@ RESTful (JAX-RS): HTTP all methods
 Multiple data fomats
 ```
 
-3. SOA standard
+3 SOA standard
 ```
 what:
 Architectureal Principles: services / loosely coupled
