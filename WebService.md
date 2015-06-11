@@ -1,4 +1,4 @@
-1. Web Service
+1 Web Service
 ```
 Consumer application ==>provider application via SOAP, XML, JSON
 Consumer application <==>provider application via http
@@ -9,7 +9,7 @@ Extensibility
 Mashups
 ```
 
-2. Two Protocols 
+2 Two Protocols 
 ```
 SOAP (JAX-WS)
 XML  HTTP POST
