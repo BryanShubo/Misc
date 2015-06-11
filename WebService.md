@@ -63,6 +63,19 @@ In-Build Types
 
 6 NAMESPACE
 ```
+1) Uniquely Qualify Elements
+ex: <amazon:order></amazon:order>
 
+2) Organize types across schemas (like packages in Java)
+
+Instead of using the entire namespace url to refer to a xml element, prefix can be used.
+```
+
+7 XML schema example
+```
+Patient Billing <==> Patient Clinical
+
+Patient Data:
+name, age, DOB, Email, gender, phone
 
 ```
