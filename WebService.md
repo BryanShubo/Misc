@@ -128,4 +128,17 @@ Example2:
         </soap:Reason>
     </soap:Fault>
 </soap:body>
+
+Example 3:
+<soap:Header>
+    <wsse:Security>
+        <wsse:UsernameToken>
+            <wsse:Username>
+            <wsse:password>
+        </wsse:UsernameToken>
+    </wsse:Security>
+</soap:Header>
+
+
+
 ```
