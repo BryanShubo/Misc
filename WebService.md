@@ -138,7 +138,17 @@ Example 3:
         </wsse:UsernameToken>
     </wsse:Security>
 </soap:Header>
+```
 
+9 WSDL: web service description  language
+```
+ABSTRACT
+* definitions 
+** types/ messages/ operation/ 
 
+porttype: contains all operations
+
+Physical
+binding/ service
 
 ```
