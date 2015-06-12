@@ -48,6 +48,10 @@ Validation: XML schema is a blue print for XML documentation
 
 Namespace: allows usage of elements from differnet schemas in a single xml document. We use the unique 
 namespace to identify elements
+
+<customerName>Bharath</customerName>
+
+<customerName> is MetaData, Bharath is data. This is equivalent to customer.name="Bharath"  
 ```
 
 5 XSD (XML schema definition): 
