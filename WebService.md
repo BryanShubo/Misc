@@ -144,9 +144,10 @@ Example 3:
 ```
 ABSTRACT
 * definitions 
-** types/ messages/ operation/ 
-
-porttype: contains all operations
+** types:
+** messages: is equivalent to method parameters in programming
+** operation: 
+** porttype: contains all operations
 
 Physical
 binding/ service
