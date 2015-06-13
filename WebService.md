@@ -153,3 +153,12 @@ Physical
 binding/ service
 
 ```
+
+9 Web Service Design Approaches
+```
+* Top Down / WSDL First / Contract First
+
+
+* Code First / Bottom Up
+
+```
