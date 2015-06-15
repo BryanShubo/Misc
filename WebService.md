@@ -181,6 +181,35 @@ Contract first except while exposing legacy applications as web services
 
 10 JAX-WS API and JAXB
 ```
+* Specification (Engine): CXF / GlassFish
+
+* API: annotation / developers
+
+* Core: 
+javax.jws.WebService / 
+public class OrderService
+
+javax.jws.WebMethod
+Annotation: @WebResult(name="order") Order getOrder (@WebParam(name="orderId")Long orderId)
+
+javax.xml.ws.WebFault
+MyException extends Exception
+
+javax.jws.soap.SOAPBinging
+document / literal
+@SOAPBinding(style=Style.RPC, use=Use.LITERAL)
+public interface OrderService
+
+javax.xml.ws.RequestWrapper
+javax.xml.ws.ReponseWrapper
+
+* JAXB (current version: 2.2): XML<==>Java Objects
+Three tools
+1)XML schema --XJC-->java class
+2)Java Class --schemagen--> XML schema
+3)Java Objects --RUNTIME API-->XML
+
+Runtime API: Marshall / UNMarshall / Annotations
 
 
 ```
