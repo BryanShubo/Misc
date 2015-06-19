@@ -30,7 +30,7 @@ abc@server2.linux.com:\
 /opt/oradal/master/abc/
 ```
 
-##### Putting multiple commands on a single line
+Putting multiple commands on a single line
 ```
 $make ;make install; make clean // three commands will all execute even if the ones preceding them fail
 $ make && make install && make clean // the subsequent commands will abort if one fails. && (and operator)
