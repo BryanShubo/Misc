@@ -70,7 +70,8 @@ sudo apt-get upgrade <software_name>
 ####Comparing files and file types
 ```
 diff <filename1> <filename2>
-diff -c // provides a listing of differences that include 3 lines of context before and after the lines differing in content
+diff -c // provides a listing of differences that include 3 lines of context before and after 
+        // the lines differing in content
 diff -i // ignore the case of letters
 diff -w // ignore differences in spaces and tabs (white space)
 diff -r // used to recursively compare subdirectories as well as the current directory
@@ -159,6 +160,8 @@ TAB // auto-completes files, directories, and binaries
 
 
 // file permissions
+First position: "-" file, "d" directory, "l" link.
+
 chown // Used to change user ownership of a file or directory
 chgrp // used to change group ownership
 chmod // used to change the permissions on the file which can be done separately for owner, group and the rest of the world.
