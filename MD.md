@@ -50,3 +50,18 @@ This is multi-line format
 ```
 [Visit GitHub!](www.github.com).
 ```
+
+#### Strikethrough
+```
+~~this is a strickesthrough line~~
+
+```
+
+#### Table
+```
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+
+```
