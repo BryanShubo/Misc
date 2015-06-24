@@ -18,8 +18,9 @@ mvn archetype:generate -DgroupId=org.apache.cli
 ```
 
 #####2. Using mavn to build jar file
-```
 1) add this plugin to pom.xml
+```xml
+
         <build>
                 <plugins>        
 	                <plugin>
@@ -38,7 +39,7 @@ mvn archetype:generate -DgroupId=org.apache.cli
 				</configuration>
 			</plugin>
 		</plugins>
-	<build>	
+	</build>	
 ```
 			
 2) mvn clean compile assembly:assembly
