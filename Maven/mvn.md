@@ -18,18 +18,19 @@ clean生命周期每套生命周期都由一组阶段(Phase)组成，我们平�
 1) pre-clean 执行一些需要在clean之前完成的工作 
 2) clean 移除所有上一次构建生成的文件 
 3) post-clean 执行一些需要在clean之后立刻完成的工作 
-4) mvn clean 中的clean就是上面的clean，在一个生命周期中，运行某个阶段的时候，它之前的所有阶段都会被运行，
-也就是说，mvn clean 等同于 mvn pre-clean clean ，如果我们运行 mvn post-clean ，那么 pre-clean，clean 都会被运行。这是Maven很重要的一个规则，可以大大简化命令行的输入。 
+4) mvn clean 中的clean就是上面的clean，在一个生命周期中，运行某个阶段的时候，它之前的所有阶段都会被运行.
 ```
+也就是说，mvn clean 等同于 mvn pre-clean clean ，如果我们运行 mvn post-clean ，那么 pre-clean，clean 都会被运行。这是Maven很重要的一个规则，可以大大简化命令行的输入.
 
 ####2. Site生命周期pre-site 执行一些需要在生成站点文档之前完成的工作 
 ```
 1) site 生成项目的站点文档 
 2) post-site 执行一些需要在生成站点文档之后完成的工作，并且为部署做准备 
 3) site-deploy 将生成的站点文档部署到特定的服务器上 
-这里经常用到的是site阶段和site-deploy阶段，用以生成和发布Maven站点，这可是Maven相当强大的功能，
-Manager比较喜欢，文档及统计数据自动生成，很好看。 
 ```
+这里经常用到的是site阶段和site-deploy阶段，用以生成和发布Maven站点，这可是Maven相当强大的功能，
+Manager比较喜欢，文档及统计数据自动生成，很好看。
+
 ####3. Default生命周期Default生命周期是Maven生命周期中最重要的一个，绝大部分工作都发生在这个生命周期中。
 ```
 1) validate 
