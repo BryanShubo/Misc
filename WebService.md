@@ -213,3 +213,38 @@ Runtime API: Marshall / UNMarshall / Annotations
 
 
 ```
+
+10 Apache CXF
+
+```
+1) Why CXF
+JAX-WS and JAX-RS
+SOAP / REST Engine
+Serialize and De-Serialize
+Publish and Dispatch
+
+2) XML <-> SOAP/REST <-> Java Object <-> WS Endpoint Method
+
+3) Webservice Standards
+WS security
+WS policy
+
+4) Tools:
+wsdl2java
+java2wsdl
+
+
+5) Spring Configuration 
+
+6) Extend and Customize: Interceptptors and Handler
+
+7) Documentation and Samples
+
+```
+
+
+
+
+
+
+
