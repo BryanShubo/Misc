@@ -244,7 +244,15 @@ java2wsdl
 
 
 
+11  Top Down Case: CustomerOrdersService
+```
+step 1: WSDL
+step 2: Generate Stubs
+step 3: Implement the endpoint
+step 4: Configure the cf-servlet.xml
 
+
+```
 
 
 
