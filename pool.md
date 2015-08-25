@@ -1,3 +1,7 @@
+Setup content assist in Eclipse:
+go to, Window >> Preferences >> Java >> Editor >> Content Assist >> Auto activation triggers for java, and enter .abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ , this will trigger the auto activation for class names, methods, etc...
+
+
 how to escape & from xml:
 ```
 '&' --> '&amp';
