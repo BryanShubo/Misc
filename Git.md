@@ -152,6 +152,7 @@ git merge --abort // only works when there are conflicts for git merge
 #####4.4 git log
 ```
 git log // show all changes we have committed so far
+git log -p -2 //-p show difference introduced in each commit; -2 limit to 2 enties.
 git log --follow [file] // Lists version history for a file, including renames
 ```
 
