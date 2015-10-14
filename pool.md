@@ -1,3 +1,60 @@
+What is performance testing?
+
+Performance testing is the testing, which is performed, to ascertain how the components of a system are performing, given a particular situation. Resource usage, scalability and reliability of the product are also validated under this testing. This testing is the subset of performance engineering, which is focused on addressing performance issues in the design and architecture of software product.
+
+Performance Testing Goal:
+
+The primary goal of performance testing includes establishing the benchmark behaviour of the system. There are a number of industry-defined benchmarks, which should be met during performance testing.
+
+Performance testing does not aim to find defects in the application, it address a little more critical task of testing the benchmark and standard set for the application. Accuracy and close monitoring of the performance and results of the test is the primary characteristic of performance testing.
+
+Example:
+
+For instance, you can test the application network performance on Connection Speed vs. Latency chart. Latency is the time difference between the data to reach from source to destination. Thus, a 70kb page would take not more than 15 seconds to load for a worst connection of 28.8kbps modem (latency=1000 milliseconds), while the page of same size would appear within 5 seconds, for the average connection of 256kbps DSL (latency=100 milliseconds). 1.5mbps T1 connection (latency=50 milliseconds) would have the performance benchmark set within 1 second to achieve this target.
+
+For example, the time difference between the generation of request and acknowledgement of response should be in the range of x ms (milliseconds) and y ms, where x and y are standard digits. A successful performance testing should project most of the performance issues, which could be related to database, network, software, hardware etc…
+
+===================================
+2) Load Testing:
+
+Load testing is meant to test the system by constantly and steadily increasing the load on the system till the time it reaches the threshold limit. It is the simplest form of testing which employs the use of automation tools such as LoadRunner or any other good tools, which are available. Load testing is also famous by the names like volume testing and endurance testing.
+
+The sole purpose of load testing is to assign the system the largest job it could possible handle to test the endurance and monitoring the results. An interesting fact is that sometimes the system is fed with empty task to determine the behaviour of system in zero-load situation.
+
+Load Testing Goal:
+
+The goals of load testing are to expose the defects in application related to buffer overflow, memory leaks and mismanagement of memory. Another target of load testing is to determine the upper limit of all the components of application like database, hardware and network etc… so that it could manage the anticipated load in future. The issues that would eventually come out as the result of load testing may include load balancing problems, bandwidth issues, capacity of the existing system etc…
+
+Example:
+
+For example, to check the email functionality of an application, it could be flooded with 1000 users at a time. Now, 1000 users can fire the email transactions (read, send, delete, forward, reply) in many different ways. If we take one transaction per user per hour, then it would be 1000 transactions per hour. By simulating 10 transactions/user, we could load test the email server by occupying it with 10000 transactions/hour.
+================================================
+3) Stress testing
+
+Under stress testing, various activities to overload the existing resources with excess jobs are carried out in an attempt to break the system down. Negative testing, which includes removal of the components from the system is also done as a part of stress testing. Also known as fatigue testing, this testing should capture the stability of the application by testing it beyond its bandwidth capacity.
+
+The purpose behind stress testing is to ascertain the failure of system and to monitor how the system recovers back gracefully. The challenge here is to set up a controlled environment before launching the test so that you could precisely capture the behaviour of system repeatedly, under the most unpredictable scenarios.
+
+Stress Testing Goal:
+
+The goal of the stress testing is to analyse post-crash reports to define the behaviour of application after failure. The biggest issue is to ensure that the system does not compromise with the security of sensitive data after the failure. In a successful stress testing, the system will come back to normality along with all its components, after even the most terrible break down.
+
+Example:
+
+As an example, a word processor like Writer1.1.0 by OpenOffice.org is utilized in development of letters, presentations, spread sheets etc… Purpose of our stress testing is to load it with the excess of characters.
+
+To do this, we will repeatedly paste a line of data, till it reaches its threshold limit of handling large volume of text. As soon as the character size reaches 65,535 characters, it would simply refuse to accept more data. The result of stress testing on Writer 1.1.0 produces the result that, it does not crash under the stress and that it handle the situation gracefully, which make sure that application is working correctly even under rigorous stress conditions.
+
+
+
+
+
+
+
+
+
+
+
 Setup content assist in Eclipse:
 go to, Window >> Preferences >> Java >> Editor >> Content Assist >> Auto activation triggers for java, and enter .abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ , this will trigger the auto activation for class names, methods, etc...
 
