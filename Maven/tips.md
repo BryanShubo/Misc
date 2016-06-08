@@ -2,6 +2,9 @@ Create a multiple modules project
 
 1. Create a maven project: pom-root project
 2. Add a module: org.apache.maven.archetypes:maven-archetype-webapp
+   Group ID:org.codehaus.mojo.archetypes
+   ArtifactId:pom-root
+   Version:1.1
 
 
 #####1. Using command to create a project
