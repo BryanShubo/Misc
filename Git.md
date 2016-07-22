@@ -44,6 +44,10 @@
 2.6 git remote -v //verify new remote
 ```
 
+```
+2.7 git rm -r --cached .idea, and then commit  // delete remote repo folder 
+```
+
 ####3. Make Changes
 #####3.1 git status
 ```
