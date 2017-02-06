@@ -141,6 +141,8 @@ git checkout -B [branch_name]// Creates the branch <new_branch> and start it at 
 git checkout -b [branch_name] master // create a new branch and start it at master                
 git checkout --track origin/serverfix // change the tracking branch    
 git checkout HEAD --folder1/pom.xml //reset a single file to the HEAD commit
+
+git checkout -b sprint12 origin/sprint12 // checkout a remote branch to local
 ```
 
 #####4.3 git merge
